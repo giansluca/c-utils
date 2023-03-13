@@ -31,7 +31,7 @@ int main() {
     /* POINTERS, ARRAY */
     //  test_array();
     //  test_pointers();
-    test_pointer_array();
+    //  test_pointer_array();
     //  test_pointer_function();
     //  test_double_pointer_function();
     //  test_pointer_struct();

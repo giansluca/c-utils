@@ -108,7 +108,7 @@ void scanf_example_3() {
         printf("Try to guess the secret character: ");
         scanf(" %c", &input);
         if (input == a) {
-            printf("Correct!!!\n");
+            printf("Correct!\n");
             i = 9000;
         } else {
             printf("The character %c is wrong\n", input);
@@ -282,7 +282,7 @@ void test_char_array() {
 }
 
 /**
- * Two dimension Array (basically it is a matrix)
+ * Two dimension Array (matrix)
  */
 void test_multi_dim_array() {
     int n = 10;
