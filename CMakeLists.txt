@@ -4,8 +4,8 @@ project(c-utils VERSION 1.0)
 set(CMAKE_VERBOSE_MAKEFILE OFF)
 
 set(SOURCE_FILES
-        main.c
-        functions/functions.c)
+        src/main.c
+        src/functions/functions.c)
 
 add_executable(c-utils ${SOURCE_FILES})
 
