@@ -163,7 +163,7 @@ void conditional_example() {
  * Increment static variable
  */
 void test_static_variable() {
-    // static variable in C keep keeps its state over calls
+    // static variable in C keeps its state over calls
     for (int i = 0; i < 3; i++) {
         int alpha = 0;
         static int beta = 0;
@@ -194,7 +194,7 @@ void test_do_while_loop() {
 void test_for_loop() {
     int i;
     for (i = 0; i <= 100; i++) {
-        printf("n: %d   \n", i);
+        printf("n: %d \n", i);
     }
 
     printf("Out of the loop");

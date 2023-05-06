@@ -1,14 +1,44 @@
 cmake_minimum_required(VERSION 3.25)
-project(c-utils VERSION 1.0)
+project(c-utils VERSION 1.0.0 LANGUAGES C)
 
 set(CMAKE_VERBOSE_MAKEFILE OFF)
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-set(SOURCE_FILES
-        src/main.c
-        src/functions/functions.c)
+###############################################################################
+include(CheckCSourceCompiles)
+include(CheckCSourceRuns)
+include(CheckFunctionExists)
+include(CheckIncludeFile)
+include(CheckIncludeFiles)
+include(CheckLibraryExists)
+include(CheckSymbolExists)
+include(CheckTypeSize)
 
-add_executable(c-utils ${SOURCE_FILES})
+###############################################################################
+# Check headers
+set(INCLUDES "")
+macro(ck_check_include_file header var)
+  check_include_files("${INCLUDES};${header}" ${var})
+  if(${var})
+    set(INCLUDES ${INCLUDES} ${header})
+  endif(${var})
+endmacro(ck_check_include_file)
 
-target_compile_options(c-utils PRIVATE -m64 -Wall)
+ck_check_include_file("stdlib.h" HAVE_STDLIB_H)
 
-target_link_options(c-utils PRIVATE LINKER:-lm)
+###############################################################################
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
+include_directories(BEFORE ${CMAKE_CURRENT_BINARY_DIR})
+add_definitions(-DHAVE_CONFIG_H)
+set(CONFIG_HEADER ${CMAKE_CURRENT_BINARY_DIR}/config.h)
+
+###############################################################################
+# Subdirectories
+add_subdirectory(src)
+add_subdirectory(test)
+
+###############################################################################
+# Unit tests (command: make all test)
+enable_testing()
+add_test(NAME Test-all COMMAND test_all)
+list(APPEND CMAKE_CTEST_ARGUMENTS "--verbose;-Wno-dev")
