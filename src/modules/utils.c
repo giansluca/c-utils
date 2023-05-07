@@ -3,7 +3,7 @@
 #include <stdlib.h> /* exit */
 #include <string.h> /* memcpy, memset */
 
-#include "../headers/functions.h"
+#include "../headers/utils.h"
 
 /**
  * Useful functions

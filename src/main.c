@@ -1,11 +1,11 @@
-#include "headers/functions.h"
+#include "headers/utils.h"
 #include <stdio.h>
 
 int main() {
     printf("C-utils\n");
 
     /* BASIC */
-    basic_operations();
+    //  basic_operations();
     //  scanf_example();
     //  scanf_example_2();
     //  scanf_example_3();

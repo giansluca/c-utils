@@ -4,7 +4,7 @@
 
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/../src
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src/functions
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/modules
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/headers)
 
 find_package(Check REQUIRED)
@@ -13,11 +13,11 @@ link_directories(${CHECK_LIBRARY_DIRS})
 
 set(TEST_SOURCES
   test_runner.c
-  functions/test_functions.c
+  modules/test_utils.c
 )
 
-add_executable(test_all ${TEST_SOURCES})
-target_link_libraries(test_all functions ${CHECK_LIBRARIES})
+add_executable(target_test ${TEST_SOURCES})
+target_link_libraries(target_test utils ${CHECK_LIBRARIES})
 
-target_compile_options(test_all PRIVATE -m64 -Wall)
-target_link_options(test_all PRIVATE LINKER:-lm)
+target_compile_options(target_test PRIVATE -m64 -Wall)
+target_link_options(target_test PRIVATE LINKER:-lm)

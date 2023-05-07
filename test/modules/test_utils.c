@@ -1,4 +1,4 @@
-#include "../../src/headers/functions.h"
+#include "../../src/headers/utils.h"
 #include <check.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -29,19 +29,14 @@ START_TEST(second_test) {
 }
 END_TEST
 
-Suite *functions_suite(void) {
-    Suite *s;
-    TCase *tc_core;
+Suite *get_utils_suite(void) {
+    Suite *utils_suite = suite_create("Utils suite");
+    TCase *utils_tc = tcase_create("Utils test case");
 
-    s = suite_create("Functions");
+    tcase_add_checked_fixture(utils_tc, setup, teardown);
+    tcase_add_test(utils_tc, first_test);
+    tcase_add_test(utils_tc, second_test);
+    suite_add_tcase(utils_suite, utils_tc);
 
-    /* Core test case */
-    tc_core = tcase_create("Core");
-
-    tcase_add_checked_fixture(tc_core, setup, teardown);
-    tcase_add_test(tc_core, first_test);
-    tcase_add_test(tc_core, second_test);
-    suite_add_tcase(s, tc_core);
-
-    return s;
+    return utils_suite;
 }

@@ -38,7 +38,12 @@ add_subdirectory(src)
 add_subdirectory(test)
 
 ###############################################################################
-# Unit tests (command: make all test)
+# Unit tests
 enable_testing()
-add_test(NAME Test-all COMMAND test_all)
-list(APPEND CMAKE_CTEST_ARGUMENTS "--verbose;-Wno-dev")
+add_test(NAME C-utils COMMAND target_test)
+list(APPEND CMAKE_CTEST_ARGUMENTS "--verbose")
+
+
+# run tests in :          make test
+# run tests out :         make test -C build-debug
+# build and run tests :   make all test
