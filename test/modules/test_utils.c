@@ -13,10 +13,10 @@ void teardown(void) {
 
 START_TEST(first_test) {
     int int_test = 5;
-    char string_test[] = "this is a test";
+    char string_test[] = "this is a test 1";
 
     ck_assert_int_eq(int_test, 5);
-    ck_assert_str_eq(string_test, "this is a test");
+    ck_assert_str_eq(string_test, "this is a test 1");
 }
 END_TEST
 

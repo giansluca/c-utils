@@ -43,7 +43,19 @@ enable_testing()
 add_test(NAME C-utils COMMAND target_test)
 list(APPEND CMAKE_CTEST_ARGUMENTS "--verbose")
 
+# Example --> commands from project root
+#
+# Debug :
+# create makefile :       cmake -S . -B build-debug -D CMAKE_C_COMPILER=clang -D CMAKE_BUILD_TYPE=Debug
+# build :                 cmake --build build-debug
+# run tests :             make test -C build-debug
+# build and run tests :   make all test -C build-debug
+#
+# Release :
+# create makefile :       cmake -S . -B build-release -D CMAKE_C_COMPILER=clang -D CMAKE_BUILD_TYPE=Release
+# build :                 cmake --build build-release
+# run tests :             make test -C build-release
+# build and run tests :   make all test -C build-release
 
-# run tests in :          make test
-# run tests out :         make test -C build-debug
-# build and run tests :   make all test
+
+
