@@ -15,25 +15,12 @@ include(CheckSymbolExists)
 include(CheckTypeSize)
 
 ###############################################################################
-# Check headers
-set(INCLUDES "")
-macro(ck_check_include_file header var)
-  check_include_files("${INCLUDES};${header}" ${var})
-  if(${var})
-    set(INCLUDES ${INCLUDES} ${header})
-  endif(${var})
-endmacro(ck_check_include_file)
-
-ck_check_include_file("stdlib.h" HAVE_STDLIB_H)
-
-###############################################################################
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 include_directories(BEFORE ${CMAKE_CURRENT_BINARY_DIR})
 add_definitions(-DHAVE_CONFIG_H)
 set(CONFIG_HEADER ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 ###############################################################################
-# Subdirectories
 add_subdirectory(src)
 add_subdirectory(test)
 
