@@ -27,7 +27,7 @@ add_subdirectory(test)
 ###############################################################################
 # Unit tests
 enable_testing()
-add_test(NAME C-utils COMMAND target_test)
+add_test(NAME C-utils COMMAND run_test)
 list(APPEND CMAKE_CTEST_ARGUMENTS "--verbose")
 
 # Example --> commands from project root

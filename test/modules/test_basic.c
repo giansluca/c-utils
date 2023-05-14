@@ -1,13 +1,13 @@
-#include "../../src/headers/utils.h"
+#include "../../src/headers/basic.h"
 #include <check.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-void setup(void) {
+void basic_setup(void) {
     //
 }
 
-void teardown(void) {
+void basic_teardown(void) {
     //
 }
 
@@ -29,14 +29,14 @@ START_TEST(second_test) {
 }
 END_TEST
 
-Suite *get_utils_suite(void) {
-    Suite *utils_suite = suite_create("Utils suite");
-    TCase *utils_tc = tcase_create("Utils test case");
+Suite *get_basic_suite(void) {
+    Suite *basic_suite = suite_create("Basic suite");
+    TCase *basic_tc = tcase_create("Basic test case");
 
-    tcase_add_checked_fixture(utils_tc, setup, teardown);
-    tcase_add_test(utils_tc, first_test);
-    tcase_add_test(utils_tc, second_test);
-    suite_add_tcase(utils_suite, utils_tc);
+    tcase_add_checked_fixture(basic_tc, basic_setup, basic_teardown);
+    tcase_add_test(basic_tc, first_test);
+    tcase_add_test(basic_tc, second_test);
+    suite_add_tcase(basic_suite, basic_tc);
 
-    return utils_suite;
+    return basic_suite;
 }

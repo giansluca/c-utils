@@ -1,12 +1,5 @@
-#ifndef TEST_01_TEST_HEADER_H
-#define TEST_01_TEST_HEADER_H
-
-typedef struct Dog {
-    char name[100];
-    char *race;
-    int age;
-    float weight;
-} Dog;
+#ifndef C_UTILS_BASIC_HEADER_H
+#define C_UTILS_BASIC_HEADER_H
 
 /* BASIC */
 void basic_operations();
@@ -27,10 +20,6 @@ void guess_word();
 void casting_example();
 void test_enumerations();
 
-/* STRUCT */
-void test_struct();
-void test_typedef_struct();
-
 /* POINTERS, ARRAY */
 void test_array();
 void test_pointers();
@@ -43,4 +32,4 @@ void test_pointer_struct();
 void test_malloc();
 void test_realloc();
 
-#endif // TEST_01_TEST_HEADER_H
+#endif // C_UTILS_BASIC_HEADER_H

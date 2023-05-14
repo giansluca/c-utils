@@ -13,11 +13,12 @@ link_directories(${CHECK_LIBRARY_DIRS})
 
 set(TEST_SOURCES
   test_runner.c
-  modules/test_utils.c
+  modules/test_basic.c
+  modules/test_struct.c
 )
 
-add_executable(target_test ${TEST_SOURCES})
-target_link_libraries(target_test utils ${CHECK_LIBRARIES})
+add_executable(run_test ${TEST_SOURCES})
+target_link_libraries(run_test modules ${CHECK_LIBRARIES})
 
-target_compile_options(target_test PRIVATE -m64 -Wall)
-target_link_options(target_test PRIVATE LINKER:-lm)
+target_compile_options(run_test PRIVATE -m64 -Wall)
+target_link_options(run_test PRIVATE LINKER:-lm)

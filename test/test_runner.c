@@ -1,14 +1,20 @@
-#include "headers/test_utils.h"
 #include <stdlib.h>
+
+#include "headers/test_basic.h"
+#include "headers/test_struct.h"
 
 int main(void) {
     int number_failed;
 
-    Suite *utils_suite = get_utils_suite();
-    SRunner *srunner = srunner_create(utils_suite);
+    Suite *basic_suite = get_basic_suite();
+    Suite *struct_suite = get_struct_suite();
+
+    SRunner *srunner = srunner_create(basic_suite);
+    srunner_add_suite(srunner, struct_suite);
 
     srunner_run_all(srunner, CK_VERBOSE);
     number_failed = srunner_ntests_failed(srunner);
     srunner_free(srunner);
+
     return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }

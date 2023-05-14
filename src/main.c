@@ -1,4 +1,4 @@
-#include "headers/utils.h"
+#include "headers/basic.h"
 #include <stdio.h>
 
 int main() {
@@ -22,10 +22,6 @@ int main() {
     //  guess_word();
     //  casting_example();
     //  test_enumerations();
-
-    /* STRUCT */
-    //  test_struct();
-    //  test_typedef_struct();
 
     /* POINTERS, ARRAY */
     //  test_array();

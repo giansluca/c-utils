@@ -3,37 +3,28 @@
 #include <stdlib.h> /* exit */
 #include <string.h> /* memcpy, memset */
 
-#include "../headers/utils.h"
+#include "../headers/basic.h"
 
 /**
  * Useful functions
  *
  * int strcmp(const char *str1, const char *str2) --> compares two strings, return 0 if they are equals
- *
  * char *strcpy(char *dest, const char *src) --> copies the string pointed by src to dest
- *
+ * char *strncpy(char *dest, const char *src, size_t n) --> copies copies up to n characters from the string
+ *      pointed to, by src to dest
  * char *strcat(char *dest, const char *src) --> appends the string pointed by src to the end to dest
- *
  * int strlen(const char *str) --> return the length of a string (only string)
- *
  * int sizeof(var) --> returns the size in bytes of a variable type. sizeof(a). If 'a' is integer it will return 4
- *
  * void *memset(void *str, int c, size_t n) --> copies the character c (an unsigned char)
- * to the first n characters of the string pointed to by the argument str
- *
+ *      to the first n characters of the string pointed to by the argument str
  * void *memcpy(void *str1, const void *str2, size_t n) --> copies n characters from memory area
- * str2 to memory area str1
- *
+ *      str2 to memory area str1
  * int sprintf(char *str, const char *format, ...) --> sends formatted output to a string pointed by str
- *
  * char *strchr(const char *str, int c) --> searches for the first occurrence of the character c
- * (an unsigned char) in the string pointed to by the argument str. Return NULL if the character is not found
- *
- * char *strtok(char *str, const char *delim) --> breaks string str into a series of tokens using
- * the delimiter delim
- *
+ *      (an unsigned char) in the string pointed to by the argument str. Return NULL if the character is not found
+ * char *strtok(char *str, const char *delim) --> breaks string str into a series of tokens using the delimiter delim
  * void *memmove(void *str1, const void *str2, size_t n) --> copies n characters from str2 to str1,
- * but for overlapping memory blocks, memmove() is a safer approach than memcpy().
+ *      but for overlapping memory blocks, memmove() is a safer approach than memcpy().
  */
 
 /**
@@ -383,53 +374,6 @@ void test_enumerations() {
     week = wen + 1;
 
     printf("Day number:  %d \n", week);
-}
-
-/**
- * Struct test
- */
-void test_struct() {
-    struct Book {
-        char title[100];
-        char author[50];
-        int year;
-        float price;
-    };
-
-    struct Book book_1;
-
-    // i need to use strcpy, i can't assign a string directly
-    strcpy(book_1.title, "Beautiful Brighton");
-    book_1.year = 2007;
-    printf("TITLE: %s \n", book_1.title);
-    printf("YEAR: %d \n", book_1.year);
-}
-
-/**
- * Typedef Struct test define a new variable type and an array af this new type
- * (i can define it inside the header file)
- */
-void test_typedef_struct() {
-    typedef struct Book {
-        char title[100];
-        char author[50];
-        int year;
-        float price;
-    } Book;
-
-    Book big_book;
-    big_book.year = 2008;
-    printf("Year: %d \n", big_book.year);
-
-    Book small_book[10];
-    small_book[3].year = 2006;
-    printf("Year: %d \n", small_book[3].year);
-
-    Dog small_dog;
-    small_dog.age = 5;
-    small_dog.race = "pitbull";
-    printf("Age dog: %d \n", small_dog.age);
-    printf("race dog: %s \n", small_dog.race);
 }
 
 /**
