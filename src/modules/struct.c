@@ -11,6 +11,12 @@
 struct Book create_struct(char *title, char *author, int year, double price) {
     struct Book book;
 
+    size_t title_length = strlen(title);
+    if (title_length > 100) {
+        printf("Title size is bigger than 100 chars, Abort! \n");
+        exit(-1);
+    }
+
     // i need to use strcpy, i can't assign a string directly
     strcpy(book.title, title);
     strcpy(book.author, author);
@@ -21,28 +27,29 @@ struct Book create_struct(char *title, char *author, int year, double price) {
 }
 
 /**
- * Typedef Struct - it define a new variable type
+ * Typedef Struct - it define a new variable type, return value
  */
-void create_typedef_struct() {
-    typedef struct Book {
-        char title[100];
-        char author[50];
-        int year;
-        float price;
-    } Book;
+Dog create_typedef_struct_value(char *name, char *race, int age, float weight) {
+    Dog dog;
 
-    Book big_book;
-    big_book.year = 2008;
-    printf("Year: %d \n", big_book.year);
+    strcpy(dog.name, name);
+    dog.race = race;
+    dog.age = age;
+    dog.weight = weight;
 
-    Book small_book[10];
-    small_book[3].year = 2006;
-    printf("Year: %d \n", small_book[3].year);
+    return dog;
+}
 
-    Dog small_dog;
-    small_dog.age = 5;
-    small_dog.race = "pitbull";
+/**
+ * Typedef Struct - it define a new variable type, return pointer
+ */
+Dog *create_typedef_struct_pointer(char *name, char *race, int age, float weight) {
+    Dog *dog = malloc(sizeof(Dog));
 
-    printf("Age dog: %d \n", small_dog.age);
-    printf("race dog: %s \n", small_dog.race);
+    strcpy(dog->name, name);
+    dog->race = race;
+    dog->age = age;
+    dog->weight = weight;
+
+    return dog;
 }

@@ -8,7 +8,7 @@ struct Book {
     double price;
 };
 
-typedef struct Dog {
+typedef struct {
     char name[100];
     char *race;
     int age;
@@ -16,6 +16,7 @@ typedef struct Dog {
 } Dog;
 
 struct Book create_struct(char *title, char *author, int year, double price);
-void create_typedef_struct();
+Dog create_typedef_struct_value(char *name, char *race, int age, float weight);
+Dog *create_typedef_struct_pointer(char *name, char *race, int age, float weight);
 
 #endif // C_UTILS_STRUCT_HEADER_H
