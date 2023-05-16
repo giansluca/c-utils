@@ -298,7 +298,7 @@ void test_multi_dim_array() {
  */
 void guess_word() {
     int i = 0;
-    char a[5] = "hello";
+    char a[6] = "hello";
     char input[6];
 
     while (i != 9000) {

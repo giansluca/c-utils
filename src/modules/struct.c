@@ -44,7 +44,7 @@ Dog create_typedef_struct_value(char *name, char *race, int age, float weight) {
  * Typedef Struct - it define a new variable type, return pointer
  */
 Dog *create_typedef_struct_pointer(char *name, char *race, int age, float weight) {
-    Dog *dog = malloc(sizeof(Dog));
+    Dog *dog = (Dog *)malloc(sizeof(Dog));
 
     strcpy(dog->name, name);
     dog->race = race;
