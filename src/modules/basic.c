@@ -363,17 +363,18 @@ void casting_example() {
  * enumerations example
  */
 void test_enumerations() {
-    enum days { mon = 5,
-                tue,
-                wen,
-                thu,
-                fri,
-                sat,
-                sun };
-    enum days week;
-    week = wen + 1;
+    enum days { mon = 1,
+                tue = 2,
+                wen = 3,
+                thu = 4,
+                fri = 5,
+                sat = 6,
+                sun = 7
+    };
 
-    printf("Day number:  %d \n", week);
+    enum days day = fri;
+
+    printf("Day number:  %d \n", day);
 }
 
 /**
