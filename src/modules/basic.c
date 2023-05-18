@@ -42,46 +42,32 @@ void basic_operations() {
     c = b / a;
     a3 = a1 / a2;
 
-    printf("Value of var a: %d \n", a);
-    printf("Value of var b: %d \n", b);
-    printf("Value of var c: %d \n", c);
-    printf("Value of var character: %c \n", character);
+    printf("value of var a: %d \n", a);
+    printf("value of var b: %d \n", b);
+    printf("value of var c: %d \n", c);
+    printf("value of var character: %c \n", character);
     printf("\n");
-    printf("Value of var a3: %f \n", a3);
-}
-
-/**
- * Scanf example, with scanf is not allowed the 'SPACE' character
- * toupper example
- */
-void scanf_example() {
-    char string[99];
-    char a = 'd';
-
-    printf("Insert string: ");
-    scanf("%s", string);
-    printf("String inserted: %s \n", string);
-    printf("Character upper transform: %c \n", toupper(a));
+    printf("value of var a3: %f \n", a3);
 }
 
 /**
  * Scanf example
  * if / else ternary operator
  */
-void scanf_example_2() {
+void scanf_integer() {
     int max;
     int first;
     int second;
 
-    printf("Insert first number: ");
+    printf("insert first number: ");
     scanf("%d", &first);
     printf("insert second number: ");
     scanf("%d", &second);
 
     max = (first > second) ? first : second;
 
-    printf("numbers inserted: %d %d \n", first, second);
-    printf("Max is: %d \n", max);
+    printf("inserted numbers: %d, %d \n", first, second);
+    printf("max is: %d \n", max);
 }
 
 /**
@@ -89,34 +75,60 @@ void scanf_example_2() {
  * check character, if i scan only one character i need to put a blank space
  * before the placeholder " %c"
  */
-void scanf_example_3() {
+void scanf_character() {
     int i = 0;
-    char a = 'u';
+    char secret_char = 'u';
     char input;
 
-    while (i != 9000) {
+    while (i != 10) {
         fflush(stdin);
-        printf("Try to guess the secret character: ");
+        printf("try to guess the secret character: ");
         scanf(" %c", &input);
-        if (input == a) {
-            printf("Correct!\n");
-            i = 9000;
+        if (input == secret_char) {
+            printf("correct!\n");
+            i = 10;
         } else {
-            printf("The character %c is wrong\n", input);
+            printf("the character %c is wrong\n", input);
         }
     }
 }
 
 /**
- * Whit getchar and putchar is allowed the 'SPACE' character
+ * Scanf example, with scanf is not allowed the 'SPACE' character
+ * toupper example
  */
-void get_put_char_example() {
+void scanf_string_and_uppercase() {
+    char string[100];
+
+    printf("insert string: ");
+    scanf("%s", string);
+
+    size_t string_len = strlen(string) + 1;
+    char *up_string = malloc(sizeof(char) * string_len);
+    strcpy(up_string, string);
+
+    for (int i = 0; up_string[i] != '\0'; i++) {
+        if (up_string[i] >= 'a' && up_string[i] <= 'z') {
+            up_string[i] = toupper(up_string[i]);
+        }
+    }
+
+    printf("inserted string: %s \n", string);
+    printf("inserted string uppercase: %s \n", up_string);
+
+    free(up_string);
+}
+
+/**
+ * With getchar and putchar is allowed the 'SPACE' character
+ */
+void get_put_char() {
     int max = 3000;
     char string[max];
     char ch = '\0';
     int i = 0;
 
-    printf("Insert string: ");
+    printf("insert string: ");
     while (ch != '\n') {
         ch = getchar();
         string[i] = ch;
@@ -124,29 +136,11 @@ void get_put_char_example() {
     }
     string[i] = '\0';
 
+    printf("string inserted: ");
     i = 0;
-    printf("String inserted: ");
-
     while (string[i] != '\0') {
         putchar(string[i]);
         i++;
-    }
-}
-
-/**
- * Conditional statement example if, else if, else
- */
-void conditional_example() {
-    int vote;
-    printf("Insert vote: ");
-    scanf("%d", &vote);
-
-    if (vote >= 18) {
-        printf("Good! you have passed the exam \n");
-    } else if (vote >= 15 && vote < 18) {
-        printf("You have to do the second part now \n");
-    } else {
-        printf("You didn't pass the exam, try again \n");
     }
 }
 
@@ -166,7 +160,7 @@ void test_static_variable() {
 }
 
 /**
- * DoWhile loop test
+ * Do While loop test
  */
 void test_do_while_loop() {
     int value = 0;

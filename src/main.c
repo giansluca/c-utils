@@ -6,11 +6,10 @@ int main() {
 
     /* BASIC */
     //  basic_operations();
-    //  scanf_example();
-    //  scanf_example_2();
-    //  scanf_example_3();
-    //  get_put_char_example();
-    //  conditional_example();
+    //  scanf_integer();
+    //  scanf_character();
+    //  scanf_string_and_uppercase();
+    //  get_put_char();
     //  test_static_variable();
     //  test_do_while_loop();
     //  test_for_loop();
@@ -23,7 +22,7 @@ int main() {
     //  casting_example();
     //  test_enumerations();
 
-    /* POINTERS, ARRAY */
+    /* POINTERS and ARRAYS */
     //  test_array();
     //  test_pointers();
     //  test_pointer_array();

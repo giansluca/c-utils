@@ -3,11 +3,10 @@
 
 /* BASIC */
 void basic_operations();
-void scanf_example();
-void scanf_example_2();
-void scanf_example_3();
-void get_put_char_example();
-void conditional_example();
+void scanf_integer();
+void scanf_character();
+void scanf_string_and_uppercase();
+void get_put_char();
 void test_static_variable();
 void test_do_while_loop();
 void test_for_loop();
@@ -20,7 +19,7 @@ void guess_word();
 void casting_example();
 void test_enumerations();
 
-/* POINTERS, ARRAY */
+/* POINTERS and ARRAYS */
 void test_array();
 void test_pointers();
 void test_pointer_array();
