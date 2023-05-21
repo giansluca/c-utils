@@ -1,4 +1,4 @@
-#include "../../src/headers/struct.h"
+#include "../../src/modules/struct.h"
 #include <check.h>
 #include <stdbool.h>
 #include <stdio.h>

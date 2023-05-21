@@ -1,4 +1,4 @@
-#include "headers/basic.h"
+#include "./modules/basic.h"
 #include <stdio.h>
 
 int main() {
@@ -10,20 +10,19 @@ int main() {
     //  scanf_character();
     //  scanf_string_and_uppercase();
     //  get_put_char();
-    //  test_static_variable();
-    //  test_do_while_loop();
-    //  test_for_loop();
-    //  test_while_loop();
-    //  test_switch();
-    //  test_integer_array();
-    //  test_char_array();
-    //  test_multi_dim_array();
+    //  static_variable();
+    //  do_while_loop();
+    //  for_loop();
+    //  while_loop();
+    //  switch_case();
     //  guess_word();
-    //  casting_example();
-    //  test_enumerations();
+    //  casting();
+    //  enumerations();
 
     /* POINTERS and ARRAYS */
     //  test_array();
+    //  test_integer_array();
+    //  test_char_array();
     //  test_pointers();
     //  test_pointer_array();
     //  test_pointer_function();

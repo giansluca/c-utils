@@ -9,8 +9,8 @@ set(MAIN_SOURCES
 
 set(HEADERS 
   ${CONFIG_HEADER}
-  headers/basic.h
-  headers/struct.h
+  modules/basic.h
+  modules/struct.h
 )
 
 add_library(modules ${MODULES_SOURCES} ${HEADERS})

@@ -3,7 +3,7 @@
 #include <stdlib.h> /* exit */
 #include <string.h> /* memcpy, memset */
 
-#include "../headers/basic.h"
+#include "./basic.h"
 
 /**
  * Useful functions
@@ -147,7 +147,7 @@ void get_put_char() {
 /**
  * Increment static variable
  */
-void test_static_variable() {
+void static_variable() {
     // static variable in C keeps its state over calls
     for (int i = 0; i < 3; i++) {
         int alpha = 0;
@@ -160,9 +160,9 @@ void test_static_variable() {
 }
 
 /**
- * Do While loop test
+ * Do while loop
  */
-void test_do_while_loop() {
+void do_while_loop() {
     int value = 0;
     do {
         printf("Press 1 to continue : ");
@@ -170,25 +170,24 @@ void test_do_while_loop() {
         printf("\n");
     } while (value != 1);
 
-    printf("Out of the loop");
+    printf("Out of the loop\n");
 }
 
 /**
  * For loop test
  */
-void test_for_loop() {
-    int i;
-    for (i = 0; i <= 100; i++) {
+void for_loop() {
+    for (int i = 0; i <= 100; i++) {
         printf("n: %d \n", i);
     }
 
-    printf("Out of the loop");
+    printf("Out of the loop\n");
 }
 
 /**
  * while loop test with break and continue
  */
-void test_while_loop() {
+void while_loop() {
     int value;
     while (scanf("%d", &value) == 1 && value != 0) {
         if (value < 0) {
@@ -209,9 +208,9 @@ void test_while_loop() {
 }
 
 /**
- * Switch example
+ * Switch case
  */
-void test_switch() {
+void switch_case() {
     int number;
 
     printf("Insert a number : ");
@@ -234,73 +233,19 @@ void test_switch() {
 }
 
 /**
- * Integer array
- */
-void test_integer_array() {
-    int int_array[100];
-    int array_length = sizeof(int_array) / sizeof(int_array[0]);
-    int i;
-
-    for (i = 0; i < array_length; i++) {
-        int_array[i] = i;
-    }
-
-    for (i = 0; i < array_length; i++) {
-        printf("%d \n", int_array[i]);
-    }
-}
-
-/**
- * char array initialized as a String and printer as a String
- * and as a char array as well
- */
-void test_char_array() {
-    char characters[] = "Hello World!";
-    int i;
-    printf("%s \n", characters);
-
-    for (i = 0; characters[i] != '\0'; i++) {
-        printf("%c", characters[i]);
-    }
-
-    printf("\n");
-}
-
-/**
- * Two dimension Array (matrix)
- */
-void test_multi_dim_array() {
-    int n = 10;
-    int m = 12;
-    int matrix[n][m];
-    int i;
-    int j;
-
-    for (i = 0; i < m; i++) {
-        printf("line n. %d \n", i);
-
-        for (j = 0; j < n; j++) {
-            printf("%d \n", matrix[i][j]);
-        }
-
-        printf("\n");
-    }
-}
-
-/**
  * Check between strings whit scanf e strcmp
  */
 void guess_word() {
     int i = 0;
-    char a[6] = "hello";
+    char array[6] = "hello";
     char input[6];
 
     while (i != 9000) {
-        // base array length (a = hello)
-        int length_array = sizeof(a) / sizeof(a[0]);
+        // base array length (array = hello)
+        int length_array = sizeof(array) / sizeof(array[0]);
 
-        for (int z = 0; z < length_array; z++) {
-            printf("%c", a[z]);
+        for (int i = 0; i < length_array; i++) {
+            printf("%c", array[i]);
         }
 
         printf("\n");
@@ -311,8 +256,8 @@ void guess_word() {
         scanf("%s", input);
 
         // check input
-        int r = strcmp(input, a);
-        if (r == 0) {
+        int result = strcmp(input, array);
+        if (result == 0) {
             printf("Yes!!! \n");
             i = 9000;
         } else {
@@ -324,39 +269,33 @@ void guess_word() {
 /**
  * Casting example, advised explicit casting on arithmetic operations
  */
-void casting_example() {
+void casting() {
     // from float to int
-    int integer;
-    float rational;
-    rational = 47.19;
-    integer = (int)rational;
-    printf("Number: %f \n", rational);
-    printf("Number: %d \n", integer);
+    float rational_1 = 47.19;
+    int integer_1 = (int)rational_1;
+    printf("Rational 1: %f \n", rational_1);
+    printf("Integer 1: %d \n", integer_1);
     printf("\n");
 
     // from int to float
-    int integer_2;
-    float rational_2;
-    integer_2 = 18;
-    rational_2 = (float)integer_2;
-    printf("Number: %f \n", rational_2);
-    printf("Number: %d \n", integer_2);
+    int integer_2 = 18;
+    float rational_2 = (float)integer_2;
+    printf("Integer 2: %d \n", integer_2);
+    printf("Rational 2: %f \n", rational_2);
     printf("\n");
 
     // from char to int
-    int integer_3;
-    int character;
-    character = 'A';
-    integer_3 = (int)character;
-    printf("Number: %c \n", character);
-    printf("Number: %d \n", integer_3); // it is 65, the ASCII value of A
+    int character = 'A';
+    int integer_3 = (int)character;
+    printf("Character: %c \n", character);
+    printf("Integer 3: %d \n", integer_3); // it is 65, the ASCII value of A
     printf("\n");
 }
 
 /**
- * enumerations example
+ * enumerations
  */
-void test_enumerations() {
+void enumerations() {
     enum days { mon = 1,
                 tue = 2,
                 wen = 3,
@@ -392,6 +331,38 @@ void test_array() {
     // further evidence
     letter_p = &letters[0];
     printf("letter_p 2: %p\n", letter_p);
+}
+
+/**
+ * Integer array
+ */
+void test_integer_array() {
+    int int_array[100];
+    int array_length = sizeof(int_array) / sizeof(int_array[0]);
+    int i;
+
+    for (i = 0; i < array_length; i++) {
+        int_array[i] = i;
+    }
+
+    for (i = 0; i < array_length; i++) {
+        printf("%d \n", int_array[i]);
+    }
+}
+
+/**
+ * Char array
+ */
+void test_char_array() {
+    char characters[] = "Hello World!";
+    int i;
+    printf("%s \n", characters);
+
+    for (i = 0; characters[i] != '\0'; i++) {
+        printf("%c", characters[i]);
+    }
+
+    printf("\n");
 }
 
 /**

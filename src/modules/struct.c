@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../headers/struct.h"
+#include "./struct.h"
 
 /**
  * Struct
