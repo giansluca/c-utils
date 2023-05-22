@@ -295,19 +295,24 @@ void casting() {
 /**
  * enumerations
  */
-void enumerations() {
-    enum days { mon = 1,
-                tue = 2,
-                wen = 3,
-                thu = 4,
-                fri = 5,
-                sat = 6,
-                sun = 7
-    };
-
-    enum days day = fri;
-
-    printf("Day number:  %d \n", day);
+enum days enumerations(char *day_name) {
+    if (strcmp(day_name, "monday") == 0) {
+        return mon;
+    } else if (strcmp(day_name, "tuesday") == 0) {
+        return tue;
+    } else if (strcmp(day_name, "wednesday") == 0) {
+        return wen;
+    } else if (strcmp(day_name, "thursday") == 0) {
+        return thu;
+    } else if (strcmp(day_name, "friday") == 0) {
+        return fri;
+    } else if (strcmp(day_name, "saturday") == 0) {
+        return sat;
+    } else if (strcmp(day_name, "sunday") == 0) {
+        return sun;
+    } else {
+        return 0;
+    }
 }
 
 /**

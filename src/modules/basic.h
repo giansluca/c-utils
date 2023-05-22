@@ -1,6 +1,16 @@
 #ifndef C_UTILS_BASIC_HEADER_H
 #define C_UTILS_BASIC_HEADER_H
 
+enum days {
+    sun = 1,
+    mon = 2,
+    tue = 3,
+    wen = 4,
+    thu = 5,
+    fri = 6,
+    sat = 7
+};
+
 /* BASIC */
 void basic_operations();
 void scanf_integer();
@@ -14,7 +24,7 @@ void while_loop();
 void switch_case();
 void guess_word();
 void casting();
-void enumerations();
+enum days enumerations(char *day_name);
 
 /* POINTERS and ARRAYS */
 void test_array();

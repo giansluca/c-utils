@@ -12,11 +12,20 @@ void basic_teardown(void) {
 }
 
 START_TEST(first_test) {
-    int int_test = 5;
-    char string_test[] = "this is a test 1";
+    // given
+    char *tuesday = "tuesday";
+    char *saturday = "saturday";
+    char *no_day = "aaaaaa";
 
-    ck_assert_int_eq(int_test, 5);
-    ck_assert_str_eq(string_test, "this is a test 1");
+    // when
+    enum days enum_day_tue = enumerations(tuesday);
+    enum days enum_day_sat = enumerations(saturday);
+    enum days enum_day_no = enumerations(no_day);
+
+    // then
+    ck_assert_int_eq(enum_day_tue, 3);
+    ck_assert_int_eq(enum_day_sat, 7);
+    ck_assert_int_eq(enum_day_no, 0);
 }
 END_TEST
 

@@ -1,4 +1,5 @@
 #include "./modules/basic.h"
+#include "./modules/struct.h"
 #include <stdio.h>
 
 int main() {
@@ -17,7 +18,7 @@ int main() {
     //  switch_case();
     //  guess_word();
     //  casting();
-    //  enumerations();
+    //  enum days first_day = enumerations("monday");
 
     /* POINTERS and ARRAYS */
     //  test_array();
