@@ -3,7 +3,7 @@
 #include <stdlib.h> /* exit */
 #include <string.h> /* memcpy, memset */
 
-#include "./basic.h"
+#include "../include/basic.h"
 
 /**
  * Useful functions

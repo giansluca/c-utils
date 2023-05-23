@@ -1,5 +1,5 @@
-#include "./modules/basic.h"
-#include "./modules/struct.h"
+#include "./include/basic.h"
+#include "./include/struct.h"
 #include <stdio.h>
 
 int main() {

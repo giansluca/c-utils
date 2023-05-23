@@ -16,6 +16,10 @@
 #  BSD license.
 #  For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
+# If pkg-config is not installed on the system, then the CHECK_INSTALL_DIR variable must be set to the install
+# location of Check. For example, on Windows, this may be: C:/Program Files/check
+# set(CHECK_INSTALL_DIR "C:/Program Files/check")
+
 
 INCLUDE( FindPkgConfig )
 

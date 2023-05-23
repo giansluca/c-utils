@@ -1,4 +1,4 @@
-#include "../../src/modules/basic.h"
+#include "../../src/include/basic.h"
 #include <check.h>
 #include <stdio.h>
 #include <stdlib.h>
