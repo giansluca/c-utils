@@ -26,10 +26,7 @@ void guess_word();
 void casting();
 enum days enumerations(char *day_name);
 
-/* POINTERS and ARRAYS */
-void test_array();
-void test_char_array();
-void test_integer_array();
+/* POINTERS */
 void test_pointers();
 void test_pointer_array();
 void test_pointer_function();

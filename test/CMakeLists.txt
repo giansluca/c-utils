@@ -7,11 +7,11 @@ add_executable(run_test)
 target_sources(run_test PRIVATE 
   test_runner.c
   modules/test_basic.c
-  include/test_basic.h
-  modules/test_struct.c
-  include/test_struct.h
+  modules/test_basic.h
+  modules/test_structs.c
+  modules/test_structs.h
 )
-target_link_libraries(run_test basic struct ${CHECK_LIBRARIES})
+target_link_libraries(run_test basic structs arrays ${CHECK_LIBRARIES})
 
 # compiler options
 target_compile_options(run_test PRIVATE -m64 -Wall)

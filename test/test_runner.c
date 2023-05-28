@@ -1,7 +1,6 @@
+#include "./modules/test_basic.h"
+#include "./modules/test_structs.h"
 #include <stdlib.h>
-
-#include "./include/test_basic.h"
-#include "./include/test_struct.h"
 
 int main(void) {
     int number_failed;

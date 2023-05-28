@@ -1,9 +1,7 @@
-#include <ctype.h>
+#include "structs.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#include "../include/struct.h"
 
 /**
  * Struct

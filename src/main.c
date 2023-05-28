@@ -1,5 +1,6 @@
-#include "./include/basic.h"
-#include "./include/struct.h"
+#include "./modules/arrays.h"
+#include "./modules/basic.h"
+#include "./modules/structs.h"
 #include <stdio.h>
 
 int main() {
@@ -20,10 +21,7 @@ int main() {
     //  casting();
     //  enum days first_day = enumerations("monday");
 
-    /* POINTERS and ARRAYS */
-    //  test_array();
-    //  test_integer_array();
-    //  test_char_array();
+    /* POINTERS*/
     //  test_pointers();
     //  test_pointer_array();
     //  test_pointer_function();

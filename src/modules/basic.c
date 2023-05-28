@@ -1,9 +1,8 @@
+#include "basic.h"
 #include <ctype.h>  /* testing and mapping characters .. toupper() */
 #include <stdio.h>  /* input output */
 #include <stdlib.h> /* exit */
 #include <string.h> /* memcpy, memset */
-
-#include "../include/basic.h"
 
 /**
  * Useful functions
@@ -27,9 +26,6 @@
  *      but for overlapping memory blocks, memmove() is a safer approach than memcpy().
  */
 
-/**
- * Basic print operations
- */
 void basic_operations() {
     int a = 2;
     int b = 6;
@@ -51,7 +47,7 @@ void basic_operations() {
 }
 
 /**
- * Scanf example
+ * scanf example
  * if / else ternary operator
  */
 void scanf_integer() {
@@ -71,7 +67,7 @@ void scanf_integer() {
 }
 
 /**
- * Scanf example
+ * scanf example
  * check character, if i scan only one character i need to put a blank space
  * before the placeholder " %c"
  */
@@ -94,7 +90,8 @@ void scanf_character() {
 }
 
 /**
- * Scanf example, with scanf is not allowed the 'SPACE' character
+ * scanf example,
+ * with scanf is not allowed the 'SPACE' character.
  * toupper example
  */
 void scanf_string_and_uppercase() {
@@ -120,7 +117,7 @@ void scanf_string_and_uppercase() {
 }
 
 /**
- * With getchar and putchar is allowed the 'SPACE' character
+ * with getchar and putchar is allowed the 'SPACE' character
  */
 void get_put_char() {
     int max = 3000;
@@ -145,7 +142,7 @@ void get_put_char() {
 }
 
 /**
- * Increment static variable
+ * increment static variable
  */
 void static_variable() {
     // static variable in C keeps its state over calls
@@ -159,9 +156,6 @@ void static_variable() {
     }
 }
 
-/**
- * Do while loop
- */
 void do_while_loop() {
     int value = 0;
     do {
@@ -173,9 +167,6 @@ void do_while_loop() {
     printf("Out of the loop\n");
 }
 
-/**
- * For loop test
- */
 void for_loop() {
     for (int i = 0; i <= 100; i++) {
         printf("n: %d \n", i);
@@ -184,9 +175,6 @@ void for_loop() {
     printf("Out of the loop\n");
 }
 
-/**
- * while loop test with break and continue
- */
 void while_loop() {
     int value;
     while (scanf("%d", &value) == 1 && value != 0) {
@@ -207,9 +195,6 @@ void while_loop() {
     }
 }
 
-/**
- * Switch case
- */
 void switch_case() {
     int number;
 
@@ -233,7 +218,7 @@ void switch_case() {
 }
 
 /**
- * Check between strings whit scanf e strcmp
+ * check between strings whit scanf e strcmp
  */
 void guess_word() {
     int i = 0;
@@ -267,7 +252,7 @@ void guess_word() {
 }
 
 /**
- * Casting example, advised explicit casting on arithmetic operations
+ * casting example, advised explicit casting on arithmetic operations
  */
 void casting() {
     // from float to int
@@ -292,9 +277,6 @@ void casting() {
     printf("\n");
 }
 
-/**
- * enumerations
- */
 enum days enumerations(char *day_name) {
     if (strcmp(day_name, "monday") == 0) {
         return mon;
@@ -313,61 +295,6 @@ enum days enumerations(char *day_name) {
     } else {
         return 0;
     }
-}
-
-/**
- * Arrays
- */
-void test_array() {
-    // brace-enclose initialization
-    char digits[4] = {'1', '2', '3', '\0'};
-    // string literal initialization
-    char letters[4] = "abc";
-
-    printf("digits: %p\n", digits);
-    printf("letters: %p\n", letters);
-
-    // the array name is an address
-    // an array is the address of its first element, thus it is assignable to a pointer
-    char *letter_p;
-    letter_p = letters;
-    printf("letter_p 1: %p\n", letter_p);
-
-    // further evidence
-    letter_p = &letters[0];
-    printf("letter_p 2: %p\n", letter_p);
-}
-
-/**
- * Integer array
- */
-void test_integer_array() {
-    int int_array[100];
-    int array_length = sizeof(int_array) / sizeof(int_array[0]);
-    int i;
-
-    for (i = 0; i < array_length; i++) {
-        int_array[i] = i;
-    }
-
-    for (i = 0; i < array_length; i++) {
-        printf("%d \n", int_array[i]);
-    }
-}
-
-/**
- * Char array
- */
-void test_char_array() {
-    char characters[] = "Hello World!";
-    int i;
-    printf("%s \n", characters);
-
-    for (i = 0; characters[i] != '\0'; i++) {
-        printf("%c", characters[i]);
-    }
-
-    printf("\n");
 }
 
 /**

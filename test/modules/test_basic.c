@@ -1,4 +1,4 @@
-#include "../../src/include/basic.h"
+#include "../../src/modules/basic.h"
 #include <check.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,7 +11,7 @@ void basic_teardown(void) {
     //
 }
 
-START_TEST(first_test) {
+START_TEST(it_should_return_correct_enum) {
     // given
     char *tuesday = "tuesday";
     char *saturday = "saturday";
@@ -34,7 +34,7 @@ Suite *get_basic_suite(void) {
     TCase *basic_tc = tcase_create("Basic test case");
 
     tcase_add_checked_fixture(basic_tc, basic_setup, basic_teardown);
-    tcase_add_test(basic_tc, first_test);
+    tcase_add_test(basic_tc, it_should_return_correct_enum);
     suite_add_tcase(basic_suite, basic_tc);
 
     return basic_suite;
