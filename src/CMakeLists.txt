@@ -8,20 +8,24 @@ set_target_properties(structs PROPERTIES PUBLIC_HEADER modules/structs.h)
 add_library(arrays STATIC)
 target_sources(arrays PRIVATE modules/arrays.c)
 set_target_properties(arrays PROPERTIES PUBLIC_HEADER modules/arrays.h)
+add_library(pointers STATIC)
+target_sources(pointers PRIVATE modules/pointers.c)
+set_target_properties(pointers PROPERTIES PUBLIC_HEADER modules/pointers.h)
 
 # build executable
 add_executable(c-utils)
 target_sources(c-utils PRIVATE main.c)
-target_link_libraries(c-utils PRIVATE basic structs arrays)
+target_link_libraries(c-utils PRIVATE basic structs arrays pointers)
 
 # compiler options
 target_compile_options(c-utils PRIVATE -m64 -Wall)
 target_compile_options(basic PRIVATE -m64 -Wall)
 target_compile_options(structs PRIVATE -m64 -Wall)
 target_compile_options(arrays PRIVATE -m64 -Wall)
+target_compile_options(pointers PRIVATE -m64 -Wall)
 
 # install
-install(TARGETS c-utils basic structs arrays
+install(TARGETS c-utils basic structs arrays pointers
     RUNTIME DESTINATION /Users/gians/Desktop/c-utils-install/bin
     LIBRARY DESTINATION /Users/gians/Desktop/c-utils-install/lib
     ARCHIVE DESTINATION /Users/gians/Desktop/c-utils-install/lib

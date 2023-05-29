@@ -1,13 +1,14 @@
 #include "../../src/modules/basic.h"
+#include "test_utils.h"
 #include <check.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-void basic_setup(void) {
-    //
+void basic_setup() {
+    printf("<-----> \n");
 }
 
-void basic_teardown(void) {
+void basic_teardown() {
     //
 }
 
@@ -29,10 +30,11 @@ START_TEST(it_should_return_correct_enum) {
 }
 END_TEST
 
-Suite *get_basic_suite(void) {
-    Suite *basic_suite = suite_create("Basic suite");
-    TCase *basic_tc = tcase_create("Basic test case");
+Suite *get_basic_suite() {
+    Suite *basic_suite = suite_create("Basic");
+    TCase *basic_tc = tcase_create("Basic");
 
+    tcase_add_unchecked_fixture(basic_tc, tc_setup, tc_teardown);
     tcase_add_checked_fixture(basic_tc, basic_setup, basic_teardown);
     tcase_add_test(basic_tc, it_should_return_correct_enum);
     suite_add_tcase(basic_suite, basic_tc);

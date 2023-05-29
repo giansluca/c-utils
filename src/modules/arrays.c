@@ -22,24 +22,28 @@ void array() {
 }
 
 void integer_array() {
-    int int_array[100];
+    int int_array[10];
     int array_length = sizeof(int_array) / sizeof(int_array[0]);
     int i;
+    int *p = &int_array[0];
 
     for (i = 0; i < array_length; i++) {
-        int_array[i] = i;
+        int_array[i] = i + 10;
+        printf("int_array[%d] = %d\n", i, int_array[i]);
     }
 
+    printf("\n");
+
     for (i = 0; i < array_length; i++) {
-        printf("%d \n", int_array[i]);
+        printf("*(p + %d) : %d\n", i, *(p + i));
     }
 }
 
 void char_array() {
-    char characters[] = "Hello World!";
+    char characters[] = "Hello char array!";
     int i;
-    printf("%s \n", characters);
 
+    printf("%s \n", characters);
     for (i = 0; characters[i] != '\0'; i++) {
         printf("%c", characters[i]);
     }

@@ -1,14 +1,15 @@
 #include "../../src/modules/structs.h"
+#include "test_utils.h"
 #include <check.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-void struct_setup(void) {
-    //
+void structs_setup() {
+    printf("<-----> \n");
 }
 
-void struct_teardown(void) {
+void structs_teardown() {
     //
 }
 
@@ -110,18 +111,19 @@ START_TEST(is_should_not_create_typedef_struct_by_pointer) {
 }
 END_TEST
 
-Suite *get_struct_suite(void) {
-    Suite *struct_suite = suite_create("Struct suite");
-    TCase *struct_tc = tcase_create("Struct test case");
+Suite *get_structs_suite() {
+    Suite *structs_suite = suite_create("Structs");
+    TCase *structs_tc = tcase_create("Structs");
 
-    tcase_add_checked_fixture(struct_tc, struct_setup, struct_teardown);
-    tcase_add_test(struct_tc, is_should_create_struct);
-    tcase_add_test(struct_tc, is_should_not_create_struct);
-    tcase_add_test(struct_tc, is_should_create_typedef_struct_by_value);
-    tcase_add_test(struct_tc, is_should_not_create_typedef_struct_by_value);
-    tcase_add_test(struct_tc, is_should_create_typedef_struct_by_pointer);
-    tcase_add_test(struct_tc, is_should_not_create_typedef_struct_by_pointer);
-    suite_add_tcase(struct_suite, struct_tc);
+    tcase_add_unchecked_fixture(structs_tc, tc_setup, tc_teardown);
+    tcase_add_checked_fixture(structs_tc, structs_setup, structs_teardown);
+    tcase_add_test(structs_tc, is_should_create_struct);
+    tcase_add_test(structs_tc, is_should_not_create_struct);
+    tcase_add_test(structs_tc, is_should_create_typedef_struct_by_value);
+    tcase_add_test(structs_tc, is_should_not_create_typedef_struct_by_value);
+    tcase_add_test(structs_tc, is_should_create_typedef_struct_by_pointer);
+    tcase_add_test(structs_tc, is_should_not_create_typedef_struct_by_pointer);
+    suite_add_tcase(structs_suite, structs_tc);
 
-    return struct_suite;
+    return structs_suite;
 }

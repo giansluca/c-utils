@@ -6,12 +6,14 @@ link_directories(${CHECK_LIBRARY_DIRS})
 add_executable(run_test)
 target_sources(run_test PRIVATE 
   test_runner.c
+  modules/test_utils.h
+  modules/test_utils.c
   modules/test_basic.c
-  modules/test_basic.h
   modules/test_structs.c
-  modules/test_structs.h
+  modules/test_arrays.c
+  modules/test_pointers.c
 )
-target_link_libraries(run_test basic structs arrays ${CHECK_LIBRARIES})
+target_link_libraries(run_test basic structs arrays pointers ${CHECK_LIBRARIES})
 
 # compiler options
 target_compile_options(run_test PRIVATE -m64 -Wall)

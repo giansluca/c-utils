@@ -27,7 +27,9 @@ list(APPEND CMAKE_CTEST_ARGUMENTS "--verbose")
 # build :                   cmake --build build-debug
 # run tests :               make test -C build-debug
 # build and run tests :     make all test -C build-debug
-# install:                  cmake --install build-debug  
+# install:                  cmake --install build-debug
+# clean :                   cmake --build build-debug --target clean      
+
 #
 # Release :
 # create makefile :         cmake -S . -B build-release -DCMAKE_C_COMPILER=clang -DCMAKE_BUILD_TYPE=Release -Wno-dev
@@ -35,6 +37,7 @@ list(APPEND CMAKE_CTEST_ARGUMENTS "--verbose")
 # run tests :               make test -C build-release
 # build and run tests :     make all test -C build-release
 # install:                  cmake --install build-release
+# clean :                   cmake --build build-release --target clean
 
 
 

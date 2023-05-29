@@ -11,7 +11,6 @@ enum days {
     sat = 7
 };
 
-/* BASIC */
 void basic_operations();
 void scanf_integer();
 void scanf_character();
@@ -26,14 +25,7 @@ void guess_word();
 void casting();
 enum days enumerations(char *day_name);
 
-/* POINTERS */
-void test_pointers();
-void test_pointer_array();
-void test_pointer_function();
-void swap(int *apt, int *bpt);
-void test_double_pointer_function();
-void change_value(char **str);
-void test_pointer_struct();
+/* MEMORY */
 void test_malloc();
 void test_realloc();
 

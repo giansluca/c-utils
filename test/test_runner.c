@@ -1,15 +1,19 @@
-#include "./modules/test_basic.h"
-#include "./modules/test_structs.h"
+#include "./modules/test_utils.h"
+#include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
+int main() {
     int number_failed;
 
     Suite *basic_suite = get_basic_suite();
-    Suite *struct_suite = get_struct_suite();
+    Suite *structs_suite = get_structs_suite();
+    Suite *arrays_suite = get_arrays_suite();
+    Suite *pointers_suite = get_pointers_suite();
 
     SRunner *srunner = srunner_create(basic_suite);
-    srunner_add_suite(srunner, struct_suite);
+    srunner_add_suite(srunner, structs_suite);
+    srunner_add_suite(srunner, arrays_suite);
+    srunner_add_suite(srunner, pointers_suite);
 
     srunner_run_all(srunner, CK_VERBOSE);
     number_failed = srunner_ntests_failed(srunner);
