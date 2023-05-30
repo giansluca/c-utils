@@ -3,8 +3,8 @@ include_directories(${CHECK_INCLUDE_DIRS})
 link_directories(${CHECK_LIBRARY_DIRS})
 
 # build executable
-add_executable(run_tests)
-target_sources(run_tests PRIVATE 
+add_executable(run-tests)
+target_sources(run-tests PRIVATE 
   test_runner.c
   modules/test_utils.h
   modules/test_utils.c
@@ -13,7 +13,7 @@ target_sources(run_tests PRIVATE
   modules/test_arrays.c
   modules/test_pointers.c
 )
-target_link_libraries(run_tests basic structs arrays pointers ${CHECK_LIBRARIES})
+target_link_libraries(run-tests basic structs arrays pointers ${CHECK_LIBRARIES})
 
 # compiler options
-target_compile_options(run_tests PRIVATE -m64 -Wall)
+target_compile_options(run-tests PRIVATE -m64 -Wall)
