@@ -4,12 +4,18 @@
 #include <stdio.h>
 
 void arrays_setup() {
-    printf("<-----> \n");
+    printf("----> \n");
 }
 
 void arrays_teardown() {
-    //
+    printf("<---- \n");
 }
+
+START_TEST(it_should_create_and_print_array) {
+    // given - when - then
+    array();
+}
+END_TEST
 
 START_TEST(it_should_create_and_print_integer_array) {
     // given - when - then
@@ -29,6 +35,7 @@ Suite *get_arrays_suite() {
 
     tcase_add_unchecked_fixture(arrays_tc, tc_setup, tc_teardown);
     tcase_add_checked_fixture(arrays_tc, arrays_setup, arrays_teardown);
+    tcase_add_test(arrays_tc, it_should_create_and_print_array);
     tcase_add_test(arrays_tc, it_should_create_and_print_integer_array);
     tcase_add_test(arrays_tc, it_should_create_and_print_char_array);
     suite_add_tcase(arrays_suite, arrays_tc);

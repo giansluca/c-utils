@@ -3,10 +3,9 @@
 
 void pointers();
 void pointer_array();
-void pointer_function();
 void pointer_struct();
 void swap(int *apt, int *bpt);
-void test_double_pointer_function();
+void double_pointer_function();
 void change_value(char **str);
 
 #endif // C_UTILS_POINTERS_HEADER_H

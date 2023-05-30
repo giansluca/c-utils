@@ -31,7 +31,8 @@ void pointers() {
     beta = *pointer;
     printf("alpha -> %d, beta -> %d, pointer -> %p \n", alpha, beta, pointer);
 
-    *pointer = 5;
+    *pointer = 5; // assign new value to the variable pointed
+    (*pointer)++; // increment value of the variable pointed
     printf("alpha -> %d, beta -> %d, pointer -> %p \n", alpha, beta, pointer);
 }
 
@@ -49,12 +50,27 @@ void pointer_array() {
     printf("%c\n", *(letters + 2));
 }
 
-void pointer_function() {
-    int alpha = 5;
-    int beta = 13;
-    printf("alpha -> %d, beta -> %d \n", alpha, beta);
-    swap(&alpha, &beta);
-    printf("alpha -> %d, beta -> %d \n", alpha, beta);
+void pointer_struct() {
+    typedef struct Boom {
+        int i;
+        int j;
+        int z;
+    } Boom;
+
+    Boom boom = {4, 25, 315};
+    Boom *pointer = &boom;
+
+    printf("i = %d \n", boom.i);
+    printf("j = %d \n", boom.j);
+    printf("z = %d \n", boom.z);
+
+    int *beta = (int *)malloc(sizeof(int));
+    *beta = pointer->j;
+
+    printf("\n");
+    printf("z = %d \n", pointer->z);
+    printf("beta = %d \n", *beta);
+    printf("address struct = %p \n", pointer);
 }
 
 void swap(int *apt, int *bpt) {
@@ -64,31 +80,7 @@ void swap(int *apt, int *bpt) {
     *bpt = temp;
 }
 
-void pointer_struct() {
-    typedef struct Boom {
-        int i;
-        int j;
-        int z;
-    } Boom;
-
-    Boom *pointer;
-    int *beta = (int *)malloc(sizeof(int));
-
-    Boom var = {1, 2, 3};
-    printf("i = %d \n", var.i);
-    printf("j = %d \n", var.j);
-    printf("z = %d \n", var.z);
-
-    pointer = &var;
-    *beta = pointer->j;
-
-    printf(" \n");
-    printf("z = %d \n", pointer->z);
-    printf("beta = %d \n", *beta);
-    printf("address struct = %p \n", pointer);
-}
-
-void test_double_pointer_function() {
+void double_pointer_function() {
     char *pointer_str = "This is a pointer string";
     char array_str[25] = "This is an array string";
 

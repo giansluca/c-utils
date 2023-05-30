@@ -16,7 +16,7 @@ add_subdirectory(test)
 
 # unit tests
 enable_testing()
-add_test(NAME C-utils COMMAND run_test)
+add_test(NAME C-utils COMMAND run_tests)
 list(APPEND CMAKE_CTEST_ARGUMENTS "--verbose")
 
 

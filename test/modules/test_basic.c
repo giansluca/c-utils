@@ -5,11 +5,11 @@
 #include <stdlib.h>
 
 void basic_setup() {
-    printf("<-----> \n");
+    printf("----> \n");
 }
 
 void basic_teardown() {
-    //
+    printf("<---- \n");
 }
 
 START_TEST(it_should_return_correct_enum) {
@@ -22,6 +22,10 @@ START_TEST(it_should_return_correct_enum) {
     enum days enum_day_tue = enumerations(tuesday);
     enum days enum_day_sat = enumerations(saturday);
     enum days enum_day_no = enumerations(no_day);
+
+    printf("'%s' is enum value %d\n", tuesday, enum_day_tue);
+    printf("'%s' is enum value %d\n", saturday, enum_day_sat);
+    printf("'%s' is enum value %d\n", no_day, enum_day_no);
 
     // then
     ck_assert_int_eq(enum_day_tue, 3);

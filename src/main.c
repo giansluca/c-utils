@@ -19,9 +19,5 @@ int main() {
     //  casting();
     //  enum days first_day = enumerations("monday");
 
-    /* MEMORY */
-    //  test_malloc();
-    //  test_realloc();
-
     return 0;
 }

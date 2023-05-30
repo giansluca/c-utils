@@ -6,11 +6,11 @@
 #include <stdlib.h>
 
 void structs_setup() {
-    printf("<-----> \n");
+    printf("----> \n");
 }
 
 void structs_teardown() {
-    //
+    printf("<---- \n");
 }
 
 START_TEST(is_should_create_struct) {
