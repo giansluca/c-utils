@@ -1,5 +1,5 @@
 #include "../../src/modules/structs.h"
-#include "test_utils.h"
+#include "utils.h"
 #include <check.h>
 #include <stdbool.h>
 #include <stdio.h>

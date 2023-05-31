@@ -40,13 +40,19 @@ void integer_array() {
 }
 
 void char_array() {
-    char characters[] = "Hello char array!";
+    char characters1[] = "Hello char array 1";
+    char *characters2 = "Hello char array 2";
     int i;
 
-    printf("%s \n", characters);
-    for (i = 0; characters[i] != '\0'; i++) {
-        printf("%c", characters[i]);
+    printf("%s \n", characters1);
+    for (i = 0; characters1[i] != '\0'; i++) {
+        printf("%c", characters1[i]);
     }
+    printf("\n");
 
+    printf("%s \n", characters2);
+    for (i = 0; *(characters2 + i) != '\0'; i++) {
+        printf("%c", *(characters2 + i));
+    }
     printf("\n");
 }

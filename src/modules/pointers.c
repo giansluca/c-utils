@@ -50,29 +50,6 @@ void pointer_array() {
     printf("%c\n", *(letters + 2));
 }
 
-void pointer_struct() {
-    typedef struct Boom {
-        int i;
-        int j;
-        int z;
-    } Boom;
-
-    Boom boom = {4, 25, 315};
-    Boom *pointer = &boom;
-
-    printf("i = %d \n", boom.i);
-    printf("j = %d \n", boom.j);
-    printf("z = %d \n", boom.z);
-
-    int *beta = (int *)malloc(sizeof(int));
-    *beta = pointer->j;
-
-    printf("\n");
-    printf("z = %d \n", pointer->z);
-    printf("beta = %d \n", *beta);
-    printf("address struct = %p \n", pointer);
-}
-
 void swap(int *apt, int *bpt) {
     int temp;
     temp = *apt;

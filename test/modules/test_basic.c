@@ -1,5 +1,5 @@
 #include "../../src/modules/basic.h"
-#include "test_utils.h"
+#include "utils.h"
 #include <check.h>
 #include <stdio.h>
 #include <stdlib.h>

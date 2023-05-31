@@ -1,5 +1,5 @@
 #include "../../src/modules/arrays.h"
-#include "test_utils.h"
+#include "utils.h"
 #include <check.h>
 #include <stdio.h>
 

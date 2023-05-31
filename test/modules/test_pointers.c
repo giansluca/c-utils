@@ -1,5 +1,5 @@
 #include "../../src/modules/pointers.h"
-#include "test_utils.h"
+#include "utils.h"
 #include <check.h>
 #include <stdio.h>
 
@@ -20,12 +20,6 @@ END_TEST
 START_TEST(it_should_print_pointer_array) {
     // given - when - then
     pointer_array();
-}
-END_TEST
-
-START_TEST(it_should_print_pointer_struct) {
-    // given - when - then
-    pointer_struct();
 }
 END_TEST
 
@@ -63,7 +57,6 @@ Suite *get_pointers_suite() {
     tcase_add_test(pointers_tc, it_should_print_pointers);
     tcase_add_test(pointers_tc, it_should_print_pointer_array);
     tcase_add_test(pointers_tc, it_should_swap_variable_values);
-    tcase_add_test(pointers_tc, it_should_print_pointer_struct);
     tcase_add_test(pointers_tc, it_should_print_double_pointer_function);
     suite_add_tcase(pointers_suite, pointers_tc);
 
