@@ -12,7 +12,7 @@ struct Book create_struct(char *title, char *author, int year, double price) {
     size_t title_length = strlen(title);
     size_t author_length = strlen(author);
     if (title_length >= 100 || author_length >= 20) {
-        printf("Title size or author size is too big, Abort! \n");
+        printf("title size or author size is too big, Abort! \n");
         book.isInitialized = false;
         return book;
     }
@@ -36,7 +36,7 @@ Dog create_typedef_struct_by_value(char *name, char *race, int age, float weight
     size_t name_length = strlen(name);
     size_t race_length = strlen(race);
     if (name_length >= 200 || race_length >= 10) {
-        printf("Name size or race size is too big, Abort! \n");
+        printf("name size or race size is too big, Abort! \n");
         dog.isInitialized = false;
         return dog;
     }
@@ -63,7 +63,7 @@ Dog *create_typedef_struct_by_pointer(char *name, char *race, int age, float wei
     size_t name_length = strlen(name);
     size_t race_length = strlen(race);
     if (name_length >= 200 || race_length >= 10) {
-        printf("Name size or race size is too big, Abort! \n");
+        printf("name size or race size is too big, Abort! \n");
         free(dog);
         return NULL;
     }

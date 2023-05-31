@@ -40,8 +40,8 @@ void integer_array() {
 }
 
 void char_array() {
-    char characters1[] = "Hello char array 1";
-    char *characters2 = "Hello char array 2";
+    char characters1[] = "hello char array 1";
+    char *characters2 = "hello char array 2";
     int i;
 
     printf("%s \n", characters1);

@@ -9,11 +9,13 @@ int main() {
     Suite *structs_suite = get_structs_suite();
     Suite *arrays_suite = get_arrays_suite();
     Suite *pointers_suite = get_pointers_suite();
+    Suite *malloc_suite = get_malloc_suite();
 
     SRunner *srunner = srunner_create(basic_suite);
     srunner_add_suite(srunner, structs_suite);
     srunner_add_suite(srunner, arrays_suite);
     srunner_add_suite(srunner, pointers_suite);
+    srunner_add_suite(srunner, malloc_suite);
 
     srunner_run_all(srunner, CK_VERBOSE);
     number_failed = srunner_ntests_failed(srunner);

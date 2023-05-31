@@ -15,13 +15,13 @@ void structs_teardown() {
 
 START_TEST(is_should_create_struct) {
     // given
-    char *title = "Beautiful Brighton";
+    char *title = "beautiful Brighton";
     char *author = "Bob";
 
     // when
     struct Book book = create_struct(title, author, 2008, 15.60);
-    printf("Book title: %s \n", book.title);
-    printf("Book year: %d \n", book.year);
+    printf("book title: %s \n", book.title);
+    printf("book year: %d \n", book.year);
 
     // then
     ck_assert_str_eq(book.title, title);
@@ -34,7 +34,7 @@ END_TEST
 
 START_TEST(is_should_not_create_struct) {
     // given
-    char *title = "Beautiful Brighton";
+    char *title = "beautiful Brighton";
     char *author = "this is a too long author name";
 
     // when
@@ -47,13 +47,13 @@ END_TEST
 
 START_TEST(is_should_create_typedef_struct_by_value) {
     // given
-    char *name = "Colombo";
-    char *race = "Pitbull";
+    char *name = "colombo";
+    char *race = "pitbull";
 
     // when
     Dog dog = create_typedef_struct_by_value(name, race, 7, 12.30);
-    printf("Dog name: %s \n", dog.name);
-    printf("Dog race: %s \n", dog.race);
+    printf("dog name: %s \n", dog.name);
+    printf("dog race: %s \n", dog.race);
 
     // then
     ck_assert_str_eq(dog.name, name);
@@ -66,7 +66,7 @@ END_TEST
 
 START_TEST(is_should_not_create_typedef_struct_by_value) {
     // given
-    char *name = "Colombo";
+    char *name = "colombo";
     char *race = "to long race name for a dog";
 
     // when
@@ -79,13 +79,13 @@ END_TEST
 
 START_TEST(is_should_create_typedef_struct_by_pointer) {
     // given
-    char *name = "Franz";
-    char *race = "Mix";
+    char *name = "franz";
+    char *race = "mix";
 
     // when
     Dog *dog = create_typedef_struct_by_pointer(name, race, 8, 14.55);
-    printf("Dog name: %s \n", dog->name);
-    printf("Dog race: %s \n", dog->race);
+    printf("dog name: %s \n", dog->name);
+    printf("dog race: %s \n", dog->race);
 
     // then
     ck_assert_str_eq(dog->name, name);
@@ -100,7 +100,7 @@ END_TEST
 
 START_TEST(is_should_not_create_typedef_struct_by_pointer) {
     // given
-    char *name = "Franz";
+    char *name = "franz";
     char *race = "to long race name for a dog";
 
     // when

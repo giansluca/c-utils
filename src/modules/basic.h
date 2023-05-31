@@ -25,8 +25,4 @@ void guess_word();
 void casting();
 enum days enumerations(char *day_name);
 
-/* MEMORY */
-void test_malloc();
-void test_realloc();
-
 #endif // C_UTILS_BASIC_HEADER_H

@@ -159,12 +159,12 @@ void static_variable() {
 void do_while_loop() {
     int value = 0;
     do {
-        printf("Press 1 to continue : ");
+        printf("press 1 to continue : ");
         scanf("%d", &value);
         printf("\n");
     } while (value != 1);
 
-    printf("Out of the loop\n");
+    printf("out of the loop\n");
 }
 
 void for_loop() {
@@ -172,7 +172,7 @@ void for_loop() {
         printf("n: %d \n", i);
     }
 
-    printf("Out of the loop\n");
+    printf("out of the loop\n");
 }
 
 void while_loop() {
@@ -191,7 +191,7 @@ void while_loop() {
         }
 
         int power = value * value;
-        printf("Power:  %d \n", power);
+        printf("power:  %d \n", power);
     }
 }
 
@@ -203,16 +203,16 @@ void switch_case() {
 
     switch (number) {
     case 0:
-        printf("Zero \n");
+        printf("zero \n");
         break;
     case 1:
-        printf("One \n");
+        printf("one \n");
         break;
     case 2:
-        printf("Two \n");
+        printf("two \n");
         break;
     default:
-        printf("Big positive value \n");
+        printf("big positive value \n");
         break;
     }
 }
@@ -237,13 +237,13 @@ void guess_word() {
 
         // get input
         fflush(stdin);
-        printf("Try to guess the secret word: ");
+        printf("try to guess the secret word: ");
         scanf("%s", input);
 
         // check input
         int result = strcmp(input, array);
         if (result == 0) {
-            printf("Yes!!! \n");
+            printf("tes!!! \n");
             i = 9000;
         } else {
             printf("the word %s is wrong\n", input);
@@ -258,22 +258,22 @@ void casting() {
     // from float to int
     float rational_1 = 47.19;
     int integer_1 = (int)rational_1;
-    printf("Rational 1: %f \n", rational_1);
-    printf("Integer 1: %d \n", integer_1);
+    printf("rational 1: %f \n", rational_1);
+    printf("integer 1: %d \n", integer_1);
     printf("\n");
 
     // from int to float
     int integer_2 = 18;
     float rational_2 = (float)integer_2;
-    printf("Integer 2: %d \n", integer_2);
-    printf("Rational 2: %f \n", rational_2);
+    printf("integer 2: %d \n", integer_2);
+    printf("rational 2: %f \n", rational_2);
     printf("\n");
 
     // from char to int
     int character = 'A';
     int integer_3 = (int)character;
-    printf("Character: %c \n", character);
-    printf("Integer 3: %d \n", integer_3); // it is 65, the ASCII value of A
+    printf("character: %c \n", character);
+    printf("integer 3: %d \n", integer_3); // it is 65, the ASCII value of A
     printf("\n");
 }
 
@@ -295,99 +295,4 @@ enum days enumerations(char *day_name) {
     } else {
         return 0;
     }
-}
-
-/**
- * Malloc example
- */
-void test_malloc() {
-    int elements = 100;
-
-    printf("Array number elements: %d \n", elements);
-    int *array = (int *)malloc(sizeof(int) * elements);
-
-    if (array == NULL) {
-        printf("memory error\n");
-        exit(1);
-    }
-
-    int allocated = sizeof(int) * elements;
-
-    int i;
-    for (i = 0; i < elements; i++) {
-        array[i] = i;
-    }
-
-    printf("elements value\n");
-
-    for (i = 0; i < elements; i++) {
-        printf("%d %c\n", array[i], i % 10 == 9 ? 'n' : ' ');
-        // printf("%d %c\n", *(array + i), i%10 == 9 ? 'n' : ' '); // other way to access the pointer array
-    }
-
-    int *p = &array[4];
-    printf("Element 4 of array %d \n", *p);
-
-    printf("Elements number %d\n", elements);
-    printf("Element size %lu\n", sizeof(int));
-    printf("Bytes allocated %d\n", allocated);
-    printf("Free memory\n");
-
-    free(array);
-}
-
-/**
- * Realloc example
- */
-void test_realloc() {
-    int block_elements = 3;
-    printf("Elements in a block: %d\n", block_elements);
-
-    int int_byte_size = sizeof(int);
-    int block_byte_size = block_elements * int_byte_size;
-
-    int *array = (int *)malloc(block_byte_size);
-    if (array == NULL) {
-        printf("Memory nut sufficient");
-        exit(1);
-    }
-
-    int allocated = block_byte_size;
-    printf("Allocated: %d bytes \n", allocated);
-    printf("Input integer terminated with # :n \n");
-
-    int input;
-    int used_bytes = 0;
-    int i = 0;
-    int n = 0;
-    while (scanf("%d", &input)) {
-        used_bytes += int_byte_size;
-        if (used_bytes > allocated) {
-            allocated += block_byte_size;
-            array = (int *)realloc(array, allocated);
-            if (array == NULL) {
-                printf("Memory not sufficient \n");
-                exit(1);
-            }
-            i++;
-        }
-        // in this way we can read n integer numbers
-        array[n++] = input;
-    }
-
-    printf("\n");
-    printf("Allocated: %d bytes\n", allocated);
-    printf("block size: %d bytes\n", block_byte_size);
-    printf("integer size: %d bytes\n", int_byte_size);
-    printf("Used: %d bytes\n", used_bytes);
-    printf("Realloc calls: %d\n", i);
-    printf("Numbers: %d\n", n);
-
-    printf("Numbers\n");
-
-    for (i = 0; i < n; i++) {
-        printf("%d %c \n", array[i], i % 10 == 9 ? 'n' : ' ');
-    }
-
-    printf("\n");
 }

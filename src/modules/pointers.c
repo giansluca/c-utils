@@ -12,12 +12,12 @@ void pointers() {
     int var = 1;
     int *p = &var;
 
-    printf("Value of var = %d\n", var);
-    printf("Address of var = %p\n", &var);
+    printf("value of var = %d\n", var);
+    printf("address of var = %p\n", &var);
 
-    printf("Value of p = %p \n", p);
+    printf("value of p = %p \n", p);
     printf("value of where p is pointing = %d \n", *p);
-    printf("Address of p = %p \n", &p);
+    printf("address of p = %p \n", &p);
 
     printf("\n");
 
@@ -39,12 +39,12 @@ void pointers() {
 void pointer_array() {
     char letters[4] = {'a', 'b', 'c', '\0'};
 
-    puts("Array indexing");
+    puts("array indexing");
     printf("%c\n", letters[0]);
     printf("%c\n", letters[1]);
     printf("%c\n", letters[2]);
 
-    puts("Pointers Arithmetic");
+    puts("pointers Arithmetic");
     printf("%c\n", *(letters));
     printf("%c\n", *(letters + 1));
     printf("%c\n", *(letters + 2));
@@ -58,18 +58,18 @@ void swap(int *apt, int *bpt) {
 }
 
 void double_pointer_function() {
-    char *pointer_str = "This is a pointer string";
-    char array_str[25] = "This is an array string";
+    char *pointer_str = "this is a pointer string";
+    char array_str[25] = "this is an array string";
 
     change_value(&pointer_str);
-    printf("Pointer after change call: %s\n", pointer_str);
+    printf("pointer after change call: %s\n", pointer_str);
 
     char *p_arr = &array_str[0];
     change_value(&p_arr);
-    printf("Array after change call: %s\n", pointer_str);
+    printf("array after change call: %s\n", pointer_str);
 }
 
 void change_value(char **str) {
     printf("%s\n", *str);
-    *str = "New string";
+    *str = "new string";
 }
