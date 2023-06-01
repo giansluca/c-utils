@@ -1,5 +1,5 @@
-#include "../../src/modules/pointers.h"
-#include "utils.h"
+#include "../../src/pointers/pointers.h"
+#include "../utils/common.h"
 #include <check.h>
 #include <stdio.h>
 

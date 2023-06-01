@@ -1,20 +1,3 @@
-# build modules
-add_library(basic STATIC)
-target_sources(basic PRIVATE modules/basic.c)
-set_target_properties(basic PROPERTIES PUBLIC_HEADER modules/basic.h)
-add_library(structs STATIC)
-target_sources(structs PRIVATE modules/structs.c)
-set_target_properties(structs PROPERTIES PUBLIC_HEADER modules/structs.h)
-add_library(arrays STATIC)
-target_sources(arrays PRIVATE modules/arrays.c)
-set_target_properties(arrays PROPERTIES PUBLIC_HEADER modules/arrays.h)
-add_library(pointers STATIC)
-target_sources(pointers PRIVATE modules/pointers.c)
-set_target_properties(pointers PROPERTIES PUBLIC_HEADER modules/pointers.h)
-add_library(malloc STATIC)
-target_sources(malloc PRIVATE modules/malloc.c)
-set_target_properties(malloc PROPERTIES PUBLIC_HEADER modules/malloc.h)
-
 # build executable
 add_executable(c-utils)
 target_sources(c-utils PRIVATE main.c)
@@ -22,16 +5,17 @@ target_link_libraries(c-utils PRIVATE basic structs arrays pointers malloc)
 
 # compiler options
 target_compile_options(c-utils PRIVATE -m64 -Wall)
-target_compile_options(basic PRIVATE -m64 -Wall)
-target_compile_options(structs PRIVATE -m64 -Wall)
-target_compile_options(arrays PRIVATE -m64 -Wall)
-target_compile_options(pointers PRIVATE -m64 -Wall)
-target_compile_options(malloc PRIVATE -m64 -Wall)
 
 # install
-install(TARGETS c-utils basic structs arrays pointers malloc
-    RUNTIME DESTINATION /Users/gians/Desktop/c-utils-install/bin
-    LIBRARY DESTINATION /Users/gians/Desktop/c-utils-install/lib
-    ARCHIVE DESTINATION /Users/gians/Desktop/c-utils-install/lib
-    PUBLIC_HEADER DESTINATION /Users/gians/Desktop/c-utils-install/include)
+install(TARGETS c-utils
+    RUNTIME DESTINATION ${INSTALL_CURRENT_DIR}/bin
+    LIBRARY DESTINATION ${INSTALL_CURRENT_DIR}/lib
+    ARCHIVE DESTINATION ${INSTALL_CURRENT_DIR}/lib
+    PUBLIC_HEADER DESTINATION ${INSTALL_CURRENT_DIR}/include)
+
+add_subdirectory(basic)
+add_subdirectory(structs)
+add_subdirectory(arrays)
+add_subdirectory(pointers)
+add_subdirectory(malloc)
 

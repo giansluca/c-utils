@@ -6,8 +6,8 @@ link_directories(${CHECK_LIBRARY_DIRS})
 add_executable(run-tests)
 target_sources(run-tests PRIVATE 
   test_runner.c
-  modules/utils.h
-  modules/utils.c
+  utils/common.c
+  utils/common.h
   modules/test_basic.c
   modules/test_structs.c
   modules/test_arrays.c

@@ -1,5 +1,5 @@
-#include "../../src/modules/basic.h"
-#include "utils.h"
+#include "../../src/basic/basic.h"
+#include "../utils/common.h"
 #include <check.h>
 #include <stdio.h>
 #include <stdlib.h>

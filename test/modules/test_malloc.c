@@ -1,5 +1,5 @@
-#include "../../src/modules/malloc.h"
-#include "utils.h"
+#include "../../src/malloc/malloc.h"
+#include "../utils/common.h"
 #include <check.h>
 #include <stdio.h>
 

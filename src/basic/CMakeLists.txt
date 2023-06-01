@@ -1,0 +1,10 @@
+add_library(basic STATIC)
+target_sources(basic PRIVATE basic.c)
+set_target_properties(basic PROPERTIES PUBLIC_HEADER basic.h)
+target_compile_options(basic PRIVATE -m64 -Wall)
+
+install(TARGETS basic
+    RUNTIME DESTINATION ${INSTALL_CURRENT_DIR}/bin
+    LIBRARY DESTINATION ${INSTALL_CURRENT_DIR}/lib
+    ARCHIVE DESTINATION ${INSTALL_CURRENT_DIR}/lib
+    PUBLIC_HEADER DESTINATION ${INSTALL_CURRENT_DIR}/include)

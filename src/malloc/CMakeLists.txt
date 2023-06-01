@@ -1,0 +1,10 @@
+add_library(malloc STATIC)
+target_sources(malloc PRIVATE malloc.c)
+set_target_properties(malloc PROPERTIES PUBLIC_HEADER malloc.h)
+target_compile_options(malloc PRIVATE -m64 -Wall)
+
+install(TARGETS malloc
+    RUNTIME DESTINATION ${INSTALL_CURRENT_DIR}/bin
+    LIBRARY DESTINATION ${INSTALL_CURRENT_DIR}/lib
+    ARCHIVE DESTINATION ${INSTALL_CURRENT_DIR}/lib
+    PUBLIC_HEADER DESTINATION ${INSTALL_CURRENT_DIR}/include)
