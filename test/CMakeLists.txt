@@ -15,6 +15,3 @@ target_sources(run-tests PRIVATE
   modules/test_malloc.c
 )
 target_link_libraries(run-tests basic structs arrays pointers malloc ${CHECK_LIBRARIES})
-
-# compiler options
-target_compile_options(run-tests PRIVATE -m64 -Wall)
