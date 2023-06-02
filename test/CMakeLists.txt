@@ -22,5 +22,6 @@ if(WIN32)
 elseif(APPLE)
   target_link_libraries(run-tests ${CHECK_LIBRARIES})
 elseif(UNIX)
-  target_link_libraries(run-tests ${CHECK_LIBRARIES} m rt pthread subunit)     
+  target_link_libraries(run-tests ${CHECK_LIBRARIES} -lm -lrt -lpthread -lsubunit)
 endif()
+
