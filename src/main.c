@@ -5,7 +5,7 @@ int main() {
     printf("Hola C-utils\n");
 
     /* BASIC */
-    //  basic_operations();
+    basic_operations();
     //  scanf_integer();
     //  scanf_character();
     //  scanf_string_and_uppercase();
