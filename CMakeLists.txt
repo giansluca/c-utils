@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 project(c-utils VERSION 1.0.0 LANGUAGES C)
 
-set(CMAKE_VERBOSE_MAKEFILE OFF)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 if(WIN32)
@@ -45,7 +44,8 @@ list(APPEND CMAKE_CTEST_ARGUMENTS "--verbose")
 # run tests :               make test -C build/debug (ctest --test-dir build/debug -V)
 # build and run tests :     make all test -C build/debug
 # install:                  cmake --install build/debug
-# clean :                   cmake --build build/debug --target clean      
+# clean :                   cmake --build build/debug --target clean
+# run configuration :       cmake build/debug       
 
 #
 # -Release-
@@ -56,6 +56,7 @@ list(APPEND CMAKE_CTEST_ARGUMENTS "--verbose")
 # build and run tests :     make all test -C build/release
 # install:                  cmake --install build/release
 # clean :                   cmake --build build/release --target clean
+# run configuration :       cmake build/release
 
 # Check library
 # Mac :                     brew install check
