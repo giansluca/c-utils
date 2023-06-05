@@ -38,8 +38,9 @@ list(APPEND CMAKE_CTEST_ARGUMENTS "--verbose")
 # Example --> commands from project root
 #
 # -Debug-
-# create makefile :         cmake -S . -B build/debug -DCMAKE_C_COMPILER=clang -DCMAKE_BUILD_TYPE=Debug -Wno-dev
-#                           cmake -S . -B build/debug -DCMAKE_C_COMPILER=gcc -DCMAKE_BUILD_TYPE=Debug -Wno-dev
+# create makefile :         (mac)       cmake -S . -B build/debug -DCMAKE_C_COMPILER=clang -DCMAKE_BUILD_TYPE=Debug -Wno-dev
+#                           (debian)    cmake -S . -B build/debug -DCMAKE_C_COMPILER=gcc -DCMAKE_BUILD_TYPE=Debug -Wno-dev
+#                           (windows)   cmake -G "Unix Makefiles" -S . -B build/debug -DCMAKE_C_COMPILER=gcc -DCMAKE_BUILD_TYPE=Debug -Wno-dev
 # build :                   cmake --build build/debug
 # run tests :               make test -C build/debug (ctest --test-dir build/debug -V)
 # build and run tests :     make all test -C build/debug
@@ -49,8 +50,9 @@ list(APPEND CMAKE_CTEST_ARGUMENTS "--verbose")
 
 #
 # -Release-
-# create makefile :         cmake -S . -B build/release -DCMAKE_C_COMPILER=clang -DCMAKE_BUILD_TYPE=Release -Wno-dev
-#                           cmake -S . -B build/release -DCMAKE_C_COMPILER=gcc -DCMAKE_BUILD_TYPE=Release -Wno-dev
+# create makefile :         (mac)       cmake -S . -B build/release -DCMAKE_C_COMPILER=clang -DCMAKE_BUILD_TYPE=Release -Wno-dev
+#                           (debian)    cmake -S . -B build/release -DCMAKE_C_COMPILER=gcc -DCMAKE_BUILD_TYPE=Release -Wno-dev
+#                           (windows)   cmake -G "Unix Makefiles" -S . -B build/debug -DCMAKE_C_COMPILER=gcc -DCMAKE_BUILD_TYPE=Release -Wno-dev
 # build :                   cmake --build build/release
 # run tests :               make test -C build/release (ctest --test-dir build/release -V)
 # build and run tests :     make all test -C build/release
