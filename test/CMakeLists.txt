@@ -15,7 +15,7 @@ target_sources(run-tests PRIVATE
   modules/test_malloc.c
 )
 
-target_link_libraries(run-tests basic structs arrays pointers malloc)
+target_link_libraries(run-tests PRIVATE basic structs arrays pointers malloc)
 
 if(WIN32)
   target_link_libraries(run-tests ${CHECK_LIBRARIES})
