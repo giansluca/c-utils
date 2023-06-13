@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 3.18)
-project(c-utils VERSION 1.0.0 LANGUAGES C)
 
-set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+execute_process(
+    COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/script/version.sh
+    OUTPUT_VARIABLE PROJECT_VERSION)
+
+project(c-utils VERSION ${PROJECT_VERSION} LANGUAGES C)
+
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 if(WIN32)
     message(STATUS "Platform windows")
@@ -22,6 +27,7 @@ elseif(UNIX)
     add_compile_options(-m64 -Wall)
 endif()
 
+message(STATUS "current project version: " ${CMAKE_PROJECT_VERSION})
 message(STATUS "current project dir: " ${PROJECT_SOURCE_DIR})
 message(STATUS "current binary dir: " ${CMAKE_CURRENT_BINARY_DIR})
 message(STATUS "current install dir: " ${INSTALL_CURRENT_DIR})
