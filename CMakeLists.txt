@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 
-execute_process(
-    COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/script/version.sh
-    OUTPUT_VARIABLE PROJECT_VERSION)
+set(PROJECT_VERSION "1.0.0")
 
 project(c-utils VERSION ${PROJECT_VERSION} LANGUAGES C)
 
