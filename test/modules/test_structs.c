@@ -25,7 +25,7 @@ START_TEST(is_should_create_struct) {
 
     // then
     ck_assert_str_eq(book.title, title);
-    ck_assert_str_eq(book.author, author);
+    ck_assert_str_eq(book.author, "Bob");
     ck_assert_int_eq(book.year, 2008);
     ck_assert_double_eq(book.price, 15.60);
     ck_assert_int_eq(book.isInitialized, 1);
@@ -57,7 +57,7 @@ START_TEST(is_should_create_typedef_struct_by_value) {
 
     // then
     ck_assert_str_eq(dog.name, name);
-    ck_assert_str_eq(dog.race, race);
+    ck_assert_str_eq(dog.race, "pitbull");
     ck_assert_int_eq(dog.age, 7);
     ck_assert_float_eq(dog.weight, 12.30);
     ck_assert_int_eq(dog.isInitialized, 1);
@@ -89,7 +89,7 @@ START_TEST(is_should_create_typedef_struct_by_pointer) {
 
     // then
     ck_assert_str_eq(dog->name, name);
-    ck_assert_str_eq(dog->race, race);
+    ck_assert_str_eq(dog->race, "mix");
     ck_assert_int_eq(dog->age, 8);
     ck_assert_float_eq(dog->weight, 14.55);
     ck_assert_int_eq(dog->isInitialized, 1);
