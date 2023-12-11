@@ -1,6 +1,7 @@
 #include "pointers.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /*
  * -> return the value of the variable pointed;
@@ -64,12 +65,48 @@ void double_pointer_function() {
     change_value(&pointer_str);
     printf("pointer after change call: %s\n", pointer_str);
 
-    char *p_arr = &array_str[0];
-    change_value(&p_arr);
+    char *array_str_pointer = &array_str[0];
+    change_value(&array_str_pointer);
     printf("array after change call: %s\n", pointer_str);
 }
 
 void change_value(char **str) {
     printf("%s\n", *str);
     *str = "new string";
+}
+
+void pass_string_to_function() {
+    // char pointer_str[] =  "this is a pointer string";
+    char *str = (char *)malloc(50);
+    strcpy(str, "this is a pointer string");
+
+    size_t str_length = strlen(str);
+
+    printf("--> before passing to function: \n");
+    printf("string length = %lu\n", str_length);
+    printf("string content: %s\n", str);
+    printf("address of pointed string = %p\n", str);
+    printf("address of pointer = %p\n", &str);
+
+    single_pointer_string(str);
+
+    printf("--> after passing to function: \n");
+    printf("string content: %s\n", str);
+}
+
+void single_pointer_string(char *str) {
+    char *new_str = "hello new!";
+    size_t new_str_length = strlen(new_str);
+
+    for (int i = 0; i <= new_str_length; i++) {
+        *(str + i) = *(new_str + i);
+    }
+
+    size_t str_length = strlen(str);
+
+    printf("--> inside function: \n");
+    printf("string length = %lu\n", str_length);
+    printf("string content: %s\n", str);
+    printf("address of pointed string = %p\n", str);
+    printf("address of pointer = %p\n", &str);
 }
