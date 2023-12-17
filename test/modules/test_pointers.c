@@ -44,13 +44,13 @@ END_TEST
 
 START_TEST(it_should_print_double_pointer_function) {
     // given - when - then
-    double_pointer_function();
+    pass_double_pointer_string_to_function();
 }
 END_TEST
 
 START_TEST(it_should_pass_string_to_function) {
     // given - when - then
-    pass_string_to_function();
+    pass_single_pointer_string_to_function();
 }
 END_TEST
 

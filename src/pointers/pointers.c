@@ -58,24 +58,24 @@ void swap(int *apt, int *bpt) {
     *bpt = temp;
 }
 
-void double_pointer_function() {
+void pass_double_pointer_string_to_function() {
     char *pointer_str = "this is a pointer string";
     char array_str[25] = "this is an array string";
 
-    change_value(&pointer_str);
+    update_double_pointer_string(&pointer_str);
     printf("pointer after change call: %s\n", pointer_str);
 
     char *array_str_pointer = &array_str[0];
-    change_value(&array_str_pointer);
+    update_double_pointer_string(&array_str_pointer);
     printf("array after change call: %s\n", pointer_str);
 }
 
-void change_value(char **str) {
+void update_double_pointer_string(char **str) {
     printf("%s\n", *str);
     *str = "new string";
 }
 
-void pass_string_to_function() {
+void pass_single_pointer_string_to_function() {
     // char pointer_str[] =  "this is a pointer string";
     char *str = (char *)malloc(50);
     strcpy(str, "this is a pointer string");
@@ -88,13 +88,13 @@ void pass_string_to_function() {
     printf("address of pointed string = %p\n", str);
     printf("address of pointer = %p\n", &str);
 
-    single_pointer_string(str);
+    update_single_pointer_string(str);
 
     printf("--> after passing to function: \n");
     printf("string content: %s\n", str);
 }
 
-void single_pointer_string(char *str) {
+void update_single_pointer_string(char *str) {
     char *new_str = "hello new!";
     size_t new_str_length = strlen(new_str);
 
