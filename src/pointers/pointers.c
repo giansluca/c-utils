@@ -59,7 +59,9 @@ void swap(int *apt, int *bpt) {
 }
 
 void pass_double_pointer_string_to_function() {
-    char *pointer_str = "this is a pointer string";
+    char *pointer_str = (char *)malloc(25);
+    strcpy(pointer_str, "this is a pointer string");
+
     char array_str[25] = "this is an array string";
 
     update_double_pointer_string(&pointer_str);
@@ -76,7 +78,6 @@ void update_double_pointer_string(char **str) {
 }
 
 void pass_single_pointer_string_to_function() {
-    // char pointer_str[] =  "this is a pointer string";
     char *str = (char *)malloc(50);
     strcpy(str, "this is a pointer string");
 
@@ -95,7 +96,9 @@ void pass_single_pointer_string_to_function() {
 }
 
 void update_single_pointer_string(char *str) {
-    char *new_str = "hello new!";
+    char *new_str = (char *)malloc(25);
+    strcpy(new_str, "hello new!");
+
     size_t new_str_length = strlen(new_str);
 
     for (int i = 0; i <= new_str_length; i++) {
@@ -109,4 +112,26 @@ void update_single_pointer_string(char *str) {
     printf("string content: %s\n", str);
     printf("address of pointed string = %p\n", str);
     printf("address of pointer = %p\n", &str);
+}
+
+void func_1() {
+    puts("I'm function 1");
+}
+
+void func_2() {
+    puts("I'm function 2");
+}
+
+void func_3() {
+    puts("I'm function 3");
+}
+
+void call_function_pointers() {
+    function_pointer function_list[] = {func_1, func_2, func_3};
+    int function_list_size = 3;
+    FunctionsContainer all_functions = {.function_list = function_list, .function_list_size = function_list_size};
+
+    for (int i = 0; i < function_list_size; i++) {
+        all_functions.function_list[i]();
+    }
 }

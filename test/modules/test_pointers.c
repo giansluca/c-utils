@@ -54,6 +54,12 @@ START_TEST(it_should_pass_string_to_function) {
 }
 END_TEST
 
+START_TEST(it_should_call_functions_pointers) {
+    // given - when - then
+    call_function_pointers();
+}
+END_TEST
+
 Suite *get_pointers_suite() {
     Suite *pointers_suite = suite_create("Pointers");
     TCase *pointers_tc = tcase_create("Pointers");
@@ -65,6 +71,7 @@ Suite *get_pointers_suite() {
     tcase_add_test(pointers_tc, it_should_swap_variable_values);
     tcase_add_test(pointers_tc, it_should_print_double_pointer_function);
     tcase_add_test(pointers_tc, it_should_pass_string_to_function);
+    tcase_add_test(pointers_tc, it_should_call_functions_pointers);
     suite_add_tcase(pointers_suite, pointers_tc);
 
     return pointers_suite;
