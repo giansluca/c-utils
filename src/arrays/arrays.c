@@ -1,5 +1,7 @@
 #include "arrays.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 void array() {
     // brace-enclose initialization
@@ -41,9 +43,11 @@ void integer_array() {
 
 void char_array() {
     char characters1[] = "hello char array 1";
-    char *characters2 = "hello char array 2";
-    int i;
 
+    char *characters2 = (char *)malloc(50);
+    strcpy(characters2, "hello char array 2");
+
+    int i;
     printf("%s \n", characters1);
     for (i = 0; characters1[i] != '\0'; i++) {
         printf("%c", characters1[i]);
