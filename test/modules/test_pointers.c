@@ -61,9 +61,6 @@ START_TEST(it_should_call_functions_pointers) {
 END_TEST
 
 Suite *get_pointers_suite() {
-    pass_double_pointer_string_to_function();
-    pass_single_pointer_string_to_function();
-
     Suite *pointers_suite = suite_create("Pointers");
     TCase *pointers_tc = tcase_create("Pointers");
 
