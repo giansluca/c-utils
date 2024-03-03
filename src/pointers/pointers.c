@@ -59,56 +59,103 @@ void swap(int *apt, int *bpt) {
 }
 
 void pass_double_pointer_string_to_function() {
-    char *pointer_str = (char *)malloc(25);
-    strcpy(pointer_str, "this is a pointer string");
+    puts("\n");
 
-    char array_str[25] = "this is an array string";
+    char *pointer_str = (char *)malloc(35);
+    strcpy(pointer_str, "this is a pointer string - double");
+
+    size_t str_length_before = strlen(pointer_str);
+    printf("--> 1 - Before passing to function: \n");
+    printf("string length = %lu\n", str_length_before);
+    printf("string content: %s\n", pointer_str);
+    printf("address of pointed string = %p\n", pointer_str);
+    printf("address of pointer = %p\n", &pointer_str);
 
     update_double_pointer_string(&pointer_str);
-    printf("pointer after change call: %s\n", pointer_str);
 
-    char *array_str_pointer = &array_str[0];
-    update_double_pointer_string(&array_str_pointer);
-    printf("array after change call: %s\n", pointer_str);
+    size_t str_length_after = strlen(pointer_str);
+    printf("--> 4 - After passing to function: \n");
+    printf("string length = %lu\n", str_length_after);
+    printf("string content: %s\n", pointer_str);
+    printf("address of pointed string = %p\n", pointer_str);
+    printf("address of pointer = %p\n", &pointer_str);
+
+    // -- same but passing a string array instead of a pointer
+    // char array_str[25] = "this is an array string";
+    // char *array_str_pointer = &array_str[0];
+    // update_double_pointer_string(&array_str_pointer);
 }
 
 void update_double_pointer_string(char **str) {
-    printf("%s\n", *str);
+    size_t str_length_before = strlen(*str);
+    printf("--> 2 - Inside function before update: \n");
+    printf("string length = %lu\n", str_length_before);
+    printf("string content: %s\n", *str);
+    printf("address of pointed string = %p\n", *str);
+    printf("address of pointer = %p\n", str);
+
+    char *new_pointer_str = (char *)malloc(15);
+    strcpy(new_pointer_str, "new string");
+    // *str = new_pointer_str;
+
+    // --> same
     *str = "new string";
+
+    printf("--> 3 - Inside function after update: \n");
+    size_t str_length_after = strlen(*str);
+    printf("string length = %lu\n", str_length_after);
+    printf("string content: %s\n", *str);
+    printf("address of pointed string = %p\n", *str);
+    printf("address of pointer = %p\n", str);
 }
 
 void pass_single_pointer_string_to_function() {
+    puts("\n");
+
     char *str = (char *)malloc(50);
-    strcpy(str, "this is a pointer string");
+    strcpy(str, "this is a pointer string - single");
 
-    size_t str_length = strlen(str);
-
-    printf("--> before passing to function: \n");
-    printf("string length = %lu\n", str_length);
+    size_t str_length_before = strlen(str);
+    printf("--> 1 - Before passing to function: \n");
+    printf("string length = %lu\n", str_length_before);
     printf("string content: %s\n", str);
     printf("address of pointed string = %p\n", str);
     printf("address of pointer = %p\n", &str);
 
     update_single_pointer_string(str);
 
-    printf("--> after passing to function: \n");
+    size_t str_length_after = strlen(str);
+    printf("--> 4 - After passing to function: \n");
     printf("string content: %s\n", str);
+    printf("string length = %lu\n", str_length_after);
+    printf("address of pointed string = %p\n", str);
+    printf("address of pointer = %p\n", &str);
 }
 
 void update_single_pointer_string(char *str) {
-    char *new_str = (char *)malloc(25);
-    strcpy(new_str, "hello new!");
+    size_t str_length_before = strlen(str);
+    printf("--> 2 - Inside function before update: \n");
+    printf("string length = %lu\n", str_length_before);
+    printf("string content: %s\n", str);
+    printf("address of pointed string = %p\n", str);
+    printf("address of pointer = %p\n", &str);
 
-    size_t new_str_length = strlen(new_str);
+    // This does not work! - because passing the str single pointer, the the address of the pointed string is passed by value
+    // and the address of the pointer live only inside the receiving function --> see the printing
+    // the value is changed only inside the function and doesn't affect the original pointer
+    char *new_pointer_str = (char *)malloc(25);
+    strcpy(new_pointer_str, "very new string");
+    str = new_pointer_str;
 
-    for (int i = 0; i <= new_str_length; i++) {
-        *(str + i) = *(new_str + i);
-    }
+    // This works - accessing and manipulating pointed elements directly
+    // size_t new_str_length = strlen(new_pointer_str);
+    // for (int i = 0; i <= new_str_length; i++) {
+    //     *(str + i) = *(new_pointer_str + i);
+    // }
 
-    size_t str_length = strlen(str);
-
-    printf("--> inside function: \n");
-    printf("string length = %lu\n", str_length);
+    size_t str_length_after = strlen(str);
+    printf("--> 3 - Inside function after update: \n");
+    printf("string length = %lu\n", str_length_after);
     printf("string content: %s\n", str);
     printf("address of pointed string = %p\n", str);
     printf("address of pointer = %p\n", &str);
