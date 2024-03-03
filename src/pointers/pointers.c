@@ -96,10 +96,10 @@ void update_double_pointer_string(char **str) {
 
     char *new_pointer_str = (char *)malloc(15);
     strcpy(new_pointer_str, "new string");
-    // *str = new_pointer_str;
+    *str = "new string";
 
     // --> same
-    *str = "new string";
+    // *str = new_pointer_str;
 
     printf("--> 3 - Inside function after update: \n");
     size_t str_length_after = strlen(*str);
